@@ -1,0 +1,31 @@
+{
+  "name": "business-qard",
+  "version": "1.0.0",
+  "description": "Web app that generates digital business cards",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jondam1985/business-QaRd.git"
+  },
+  "keywords": [
+    "QA",
+    "Code",
+    "business",
+    "card",
+    "digital",
+    "presentation"
+  ],
+  "author": "Group 3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jondam1985/business-QaRd/issues"
+  },
+  "homepage": "https://github.com/jondam1985/business-QaRd#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}
