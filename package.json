@@ -24,7 +24,16 @@
     "url": "https://github.com/jondam1985/business-QaRd/issues"
   },
   "homepage": "https://github.com/jondam1985/business-QaRd#readme",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.19.1",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mocha": "^7.0.0",
+    "mysql": "^2.17.1",
+    "nodemon": "^2.0.2"
+  },
   "devDependencies": {
     "eslint": "^6.8.0"
   }
