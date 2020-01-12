@@ -4,8 +4,9 @@
   "description": "Web app that generates digital business cards",
   "main": "server.js",
   "scripts": {
-    "test": "",
-    "start": "node server.js"
+    "test": "eslint . --ext .js",
+    "start": "nodemon server.js",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
