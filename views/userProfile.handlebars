@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/assets/css/userPageStyles.css">
+<section id="userDisplay">
+
+<div id="heading">
+  <h1>[User Name Here] Data</h1>
+</div>
+
+  <!-- Form Field -->
+<form action="javascript:void(0);" id="regForm" method="POST">
+
+<!-- One "tab" for each step in the form: -->
+<div class="tab">Name:
+  <p><input id="first_name" name="first_name" placeholder="First name..."></p>
+  <p id="first_name_error">*Please add your first name</p>
+  <p><input id="last_name" name="last_name" placeholder="Last name..."></p>
+  <p id="last_name_error">*Please add your last name</p>
+</div>
+
+<div class="tab">Contact Info:
+  <p><input id="e_mail" name="e_mail" placeholder="E-mail..." ></p>
+  <p id="e_mail_error">*Please add your email</p>
+  <p><input id="phone" name="phone" placeholder="Phone..." ></p>
+  <p id="phone_error">*Please add your phone number</p>
+</div>
+
+<div class="tab">Work Details:
+  <p><input id="company" name="company" placeholder="Company..."></p>
+  <p id="company_error">*Please add your company or school</p>
+  <p><input id="role" name="role" placeholder="Role..."></p>
+  <p id="role_error">*Please add your role</p>
+</div>
+
+<div class="tab">Media:
+  <p><input id="portfolio" name="portfolio" placeholder="Portfolio"></p>
+  <p><input id="linked_in" name="linked_in" placeholder="LinkedIn"></p>
+  <p><input id="instagram" name="instagram" placeholder="Instagram"></p>
+</div>
+
+<p>Select a style:</p>
+
+<div class="radio">
+  <label for="style1">style 1</label>
+  <input type="radio" id="style1" name="userStyle" value="style1" checked>
+</div>
+<div class="radio">
+  <label for="style1">style 2</label>
+  <input type="radio" id="style2" name="userStyle" value="style2">  
+</div>
+<div class="radio"> 
+  <label for="style4">style 3</label>
+  <input type="radio" id="style3" name="userStyle" value="style3">
+</div>
+<div class="radio">
+  <label for="style4">style 4</label>
+  <input type="radio" id="style4" name="userStyle" value="style4">
+</div>
+
+<div>
+
+<button id="userSubmit" type="submit">Submit</button>
+</form>
+
+
+</section>

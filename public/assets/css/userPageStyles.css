@@ -1,0 +1,53 @@
+/* Style the form */
+#regForm {
+  background-color: #ffffff;
+  margin: 0px auto;
+  padding: 20px;
+  width: 75%;
+  min-width: 200px;
+}
+
+/* Style the input fields */
+input {
+  padding: 5px 0;
+  width: 100%;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+.radio{
+  display:flex;
+  width:100%;
+  min-height:25px;
+}
+
+.radio label{
+  display:block;
+  min-width:50px;
+}
+
+#first_name_error, #last_name_error, #e_mail_error, #phone_error, #company_error, #role_error{
+display:none;
+color:red;
+}
+
+#first_name_error.inError, #last_name_error.inError, #e_mail_error.inError, #phone_error.inError, #company_error.inError, #role_error.inError{
+  display:block;
+}
+
+#heading{
+  background-color:#65c4c6;
+  color:white;
+  margin:0 auto;
+  padding:10px 0;
+}
+
+#heading h1{
+  text-align:center;
+}
