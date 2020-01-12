@@ -2,9 +2,10 @@
   "name": "business-qard",
   "version": "1.0.0",
   "description": "Web app that generates digital business cards",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "start": "server.js"
   },
   "repository": {
     "type": "git",
