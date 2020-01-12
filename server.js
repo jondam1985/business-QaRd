@@ -1,9 +1,9 @@
 // Dependencies
 const express = require("express");
 const exphbs = require("express-handlebars");
-const bodyParser = require('body-parser');
-const path = require('path');
-// const mysql = require('mysql');
+const bodyParser = require("body-parser");
+const path = require("path");
+// const mysql = require("mysql");
 
 // Module Dependencies
 // const db_config = require("./config/connection");
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Host Static Files so css and js files can be retrieved
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -41,7 +41,7 @@ app.get("/userProfile", function(req, res) {
 });
 
 /*  POST REQUEST */
-app.post('/api/updateUser', (req, res) => {
+app.post("/api/updateUser", (req, res) => {
   console.log(req.body);
 });
 
