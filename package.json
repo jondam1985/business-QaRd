@@ -4,7 +4,7 @@
   "description": "Web app that generates digital business cards",
   "main": "server.js",
   "scripts": {
-    "test": "",
+    "test": "eslint . --ext .js",
     "start": "nodemon server.js",
     "lint": "eslint"
   },
