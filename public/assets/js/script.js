@@ -1,12 +1,12 @@
 // jquery code goes here
 
 $( document ).ready(function() {
-
+	
 //*************************** POST REQUEST *********************************//
-  
+	
 	let $userSubmitBtn = $("#userSubmit");
-  
-  // 3. User data sent to server to be dealt with by mysql database using AJAX
+	
+	// 3. User data sent to server to be dealt with by mysql database using AJAX
 	let saveUser = function(userInfo) {
 		return $.ajax({
 			url: "/api/updateUser",
@@ -93,9 +93,9 @@ $( document ).ready(function() {
 
 
 		if (errors === false){
-		saveUser(userInfo).then(function() {
-		// Checks if code ran
-			console.log("Success");
+			saveUser(userInfo).then(function() {
+			// Checks if code ran
+				console.log("Success");
 			});
 		}
 	};
@@ -103,6 +103,6 @@ $( document ).ready(function() {
 		
 	// 1. Makes call to handleUserInfoDelivery
 	$userSubmitBtn.on("click",  () => {
-			handleUserInfoDelivery();
+		handleUserInfoDelivery();
 	});
 });

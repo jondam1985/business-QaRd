@@ -26,7 +26,6 @@ var PORT = process.env.PORT || 9090;
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
 // Routes
 
 // Use Handlebars to render the main index.html page with the plans in it.
@@ -37,16 +36,16 @@ app.get("/", function(req, res) {
 
 app.get("/userProfile", function(req, res) {
   res.render("userProfile", 
-  {});
+    {});
 });
 
 /*  POST REQUEST */
 app.post("/api/updateUser", (req, res) => {
   console.log(req.body);
+  res("200")
 });
 
 // End of request Handling
-
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
