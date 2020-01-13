@@ -2,7 +2,7 @@
 
 $( document ).ready(function() {
 	
-//*************************** POST REQUEST *********************************//
+	//*************************** POST REQUEST *********************************//
 	
 	let $userSubmitBtn = $("#userSubmit");
 	

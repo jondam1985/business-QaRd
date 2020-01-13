@@ -30,25 +30,25 @@ app.set("view engine", "handlebars");
 
 // Use Handlebars to render the main index.html page with the plans in it.
 app.get("/", function(req, res) {
-  res.render("index", 
-  {});
+	res.render("index", 
+		{});
 });
 
 app.get("/userProfile", function(req, res) {
-  res.render("userProfile", 
-    {});
+	res.render("userProfile", 
+		{});
 });
 
 /*  POST REQUEST */
 app.post("/api/updateUser", (req, res) => {
-  console.log(req.body);
-  res("200")
+	console.log(req.body);
+	res("200");
 });
 
 // End of request Handling
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+	// Log (server-side) when our server has started
+	console.log("Server listening on: http://localhost:" + PORT);
 });
