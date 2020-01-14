@@ -10,3 +10,4 @@ deploy:
     name: business-qard
   on:
     repo: jondam1985/business-QaRd
+    branch: master
