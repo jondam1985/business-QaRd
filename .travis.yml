@@ -3,6 +3,8 @@ node_js:
   - stable
 deploy:
   provider: heroku
+  #:
+  edge: true
   api_key:
     secure: 
       put: Vp494qsAvvabgtQdk5+xrZcUGfqrTnw4yBst7nZ5B4Z3fLTJO6p1XM+MfSUpmS7ANcQewcVvbDnYifddVqZ+lTfAaH+/xAdXiFuMXa5A9CGSW+wJrdU679AvkvfvpJDwQatK9ZbXfa2Qg5PH5b5RYnJutROZJVEHu87ENrWucdpnR5FLCXTeTNS4pCImKx0l8bI9zkWocPLayF+pWnRoEc3qh5jyLUaVibJB49tmEzop9WpU2ZGI8oTfQQO21JsypV6EzLbQLw5ytLD2qX5IcHo13DO4oCgr7SjwV16SI74mviVJ5BW7kXlx5MDefRdHSabYJC/XnZLa4drBEncqxTSg4KhZLas38sGcOkSQvwF78+5cz32HMzTRcftJfw9CucipaU4xhDRcaPNo2EaKAafr9J95VmcW20cr+VkzurTmRfzU2IJvvfou2wJnt9QzDMfLJEVMvE5lRKMwZl9AmVd1t8U+MlbsA01lJw96YLePymwKQehRgQCePjast6N1vGXmYK30/MMJFVcZc9dS0ARF58y+u40ITvEDJyAt0fBnPPgvp38klf/DQORDfGbYVBZU8WlXeH/BlC4Ven9/Zn3PvAjkOtIgjaQ5NKq2DiEsXvvwBJgjuQHI1WGbbrNZ8KX6yjBzxv0aWaYZugzKc9c9ZItHncmfDPL7IH/6Hi0=
