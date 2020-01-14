@@ -3,6 +3,7 @@ node_js:
 - stable
 deploy:
   provider: heroku
+  #:
   edge: true
   api_key:
     secure: 
