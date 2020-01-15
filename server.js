@@ -39,10 +39,27 @@ app.get("/userProfile", function(req, res) {
 		{});
 });
 
+// will be as follows /QaRd/:username
+app.get("/userResume", function(req, res) {
+	res.render("userResume", 
+		{
+			userFirstName: "Andy",
+			userLastName: "Durette",
+			userEmail: "duretteandy@gmail.com",
+			userPhone: "6476077597",
+			userCompany: "U of T Student",
+			userRole: "Full Stack Developer",
+			userPortfolio: "andydurette.com",
+			userLinkedIn: "https://www.linkedin.com/in/andy-durette/",
+			userInstagram: "https://www.instagram.com/andy_cooks/?hl=en",
+			userStyle: "carbon"
+		});
+});
+
 /*  POST REQUEST */
 app.post("/api/updateUser", (req, res) => {
 	console.log(req.body);
-	res("200");
+	res.send("200");
 });
 
 // End of request Handling
