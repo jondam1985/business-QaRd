@@ -32,6 +32,10 @@ input.invalid {
   min-width:50px;
 }
 
+.radio input{
+  margin: 0 0 0 calc(100% - 63px);
+}
+
 #first_name_error, #last_name_error, #e_mail_error, #phone_error, #company_error, #role_error{
 display:none;
 color:red;

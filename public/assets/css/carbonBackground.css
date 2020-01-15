@@ -1,0 +1,117 @@
+html,body{
+  height:100%;
+}
+
+body{
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzE1MTUxNSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNC4zIiByPSIxLjgiIGZpbGw9IiMzOTM5MzkiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMS44IiBmaWxsPSJibGFjayI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjEwLjUiIGN5PSIxMi41IiByPSIxLjgiIGZpbGw9IiMzOTM5MzkiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMC41IiBjeT0iMTEuMyIgcj0iMS44IiBmaWxsPSJibGFjayI+PC9jaXJjbGU+Cjwvc3ZnPg==");
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  font-size:1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+a{
+  color:white;
+}
+
+#container { 
+  display:flex; 
+  flex-direction:column;
+  width:100%;
+}
+
+#container div {
+  display:flex; 
+  flex-direction:row;
+  justify-content: flex-start;
+  margin: 2.5px 0;
+  align-items:center;
+  width:100%;
+}
+
+#container div > div:first-of-type{
+  padding: 10px;
+  width: 50px;
+  min-height: 60px;
+  background-color: blue;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* rounding edges start */
+#container div:first-of-type > div:first-of-type{
+  border-radius: 0 10% 0 0;
+}
+
+#container div:last-of-type > div:first-of-type{
+  border-radius: 0 0 10% 0;
+}
+/* rounding edges end*/
+
+#container div > div:last-of-type{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color Settings */
+/* Names */
+#container div:nth-of-type(1) > div:first-of-type{
+  background-color: #31c2ef;
+}
+
+#container div:nth-of-type(1) > div:last-of-type p{
+  text-transform: uppercase;
+  font-weight:500;
+  font-size:1.5em;
+}
+
+
+/* Contact */
+#container div:nth-of-type(2) > div:first-of-type{
+  background-color: #feb916;
+}
+
+/* Work | Role Info */
+#container div:nth-of-type(3) > div:first-of-type{
+  background-color: #ed1865;
+}
+
+/* Social Links */
+#container div:nth-of-type(4) > div:first-of-type{
+  background-color: #165e60;
+}
+
+
+/* Force Orientation View  to portrit for a consistent style*/
+
+/*
+@media only screen and (orientation:landscape){
+  #container {
+    height: 100vw;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+}
+
+@media only screen and (orientation:portrait){
+  #container {
+     -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+     -o-transform: rotate(0deg);
+     -ms-transform: rotate(0deg);
+     transform: rotate(0deg);
+  }
+} */
