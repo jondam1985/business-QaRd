@@ -1,9 +1,34 @@
+<style>
+  #logOut{
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    width: 60px;
+  }
+
+  #logOut:hover{
+    color: cadetblue;
+  }
+
+  #logOutContainer{
+    background-color: rgb(143, 223, 206);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
 <link rel="stylesheet" href="/assets/css/userPageStyles.css">
 <section id="userDisplay">
 
 <div id="heading">
-  <h1>[User Name Here] Data</h1>
+  <h1>Welcome <span id='headingUserName'>{{username}}</span></h1>
 </div>
+
+<div id='logOutContainer'  >
+  <p id='logOut'>Logout</p>
+</div>
+
 
   <!-- Form Field -->
 <form action="javascript:void(0);" id="regForm" method="POST">
@@ -62,3 +87,18 @@
 
 
 </section>
+
+
+
+
+
+
+<script>
+  const logOut = (e) => {
+    fetch( '/logout')
+    .then(res=> window.location.href = window.location.origin )
+    .catch(err=>console.log(err));
+  }
+
+  document.getElementById('logOut').addEventListener('click',logOut);
+</script>
