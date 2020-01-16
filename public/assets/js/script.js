@@ -8,6 +8,8 @@ $( document ).ready(function() {
 	
 	// 3. User data sent to server to be dealt with by mysql database using AJAX
 	let saveUser = function(userInfo) {
+		const a = document.getElementById("headingUserName").innerText;
+		console.log(a);
 		return $.ajax({
 			url: "/api/updateUser",
 			data: userInfo,

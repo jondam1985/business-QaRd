@@ -28,13 +28,15 @@
   "homepage": "https://github.com/jondam1985/business-QaRd#readme",
   "dependencies": {
     "axios": "^0.19.1",
+    "bcrypt": "^3.0.7",
     "chai": "^4.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
     "jquery": "^3.4.1",
     "mocha": "^7.0.0",
-    "mysql": "^2.17.1",
+    "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
     "uuid": "^3.3.3"
   },

@@ -1,0 +1,106 @@
+<style>
+  #signInAndSignUp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #signInForm{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button{
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 3px;
+    border: 1px solid rgba(199, 199, 199, 0.753);
+    background-color: rgb(138, 218, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 105, 14);
+  }
+  #errMsgs{
+    color: red
+  }
+
+</style>
+
+<section id='signInAndSignUp' >
+  <form action="javascript:void(0)" id='signInForm' >
+    <label for="user">User</label>
+    <input id='user' type="user" >
+    <label for="password">Password</label>
+    <input id='pass' type="password" >
+    <button class='button' id='singIn' data-sign='singIn' >Sign In</button>
+    <button class='button' id='signUp' data-sign='signUp' >Sign Up</button>
+  </form>
+  <div id='errMsgs' ></div>
+</section>
+
+
+
+
+<script>
+
+  {{!-- the sign in funciton --}}
+  const signIn = (e) => {
+    document.getElementById('errMsgs').innerText = '';
+    const user = document.getElementById('user').value.trim();
+    const pass = document.getElementById('pass').value;
+    if ( pass !== '' && user !== '') {
+      const x = {
+        user: user,
+        pass: pass
+      }
+      fetch('/signIn', {
+        method:'POST',
+        headers:{"content-type":"application/json"},
+        body: JSON.stringify(x)
+      } )
+      .then(
+        res => {
+            if (res.status === 404){
+              document.getElementById('errMsgs').innerText = 'USERNAME OR PASSWORD DOES NOT EXISTS'
+            } else {
+              return res.json()
+            }
+          }
+      )
+      .then( res=> window.location.href = window.location.origin + '/' + res.goTo)
+      .catch(err=>console.log(err));
+    }
+  };
+
+  {{!-- the signUp function --}}
+  const singUp = (e) => {
+    document.getElementById('errMsgs').innerText = '';
+    const user = document.getElementById('user').value.trim();
+    const pass = document.getElementById('pass').value;
+    if ( pass !== '' && user !== '') {
+      const x = {
+        user: user,
+        pass: pass
+      }
+      fetch('/signUp', {
+        method:'POST',
+        headers:{"content-type":"application/json"},
+        body: JSON.stringify(x)
+      } ).then(res=>{
+        if (res.status === 200) {
+          document.getElementById('errMsgs').innerText = 'New Account Created'
+        } else if (res.status === 400 ) {
+          document.getElementById('errMsgs').innerText = 'SORRY, USER EXISTS'
+        }
+      })
+       .catch(err=>console.log(err));
+    }
+  }
+
+  document.getElementById('singIn').addEventListener('click', signIn);
+  document.getElementById('signUp').addEventListener('click', singUp);
+  
+</script>
