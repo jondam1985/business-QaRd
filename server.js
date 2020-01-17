@@ -12,18 +12,14 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 const TIME = 1000 * 60 * 15;
-
-const PORT = process.env.PORT || 9090;
-
 const {
+	PORT = 9090,
+
 	//cookie related
 	SESS_NAME = "sid",
 	SESS_SECRET = "thisIsTheSecretKey",
 	SESS_LIFETIME = TIME //set to 15 minutes
 } = process.env;
-
-
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,8 +46,13 @@ const redirectLogin = (req,res,next) => {
 	}
 };
 
-app.get("/" , ( req, res )=>{
-	res.render("index");
+app.get("/", function(req, res) {
+	res.render("index", 
+		{});
+});
+
+app.get("/signIn" , ( req, res )=>{
+	res.render("signIn");
 });
 
 
@@ -109,22 +110,48 @@ app.post("/api/updateUser" ,redirectLogin, async (req,res)=>{
 	}
 });
 
-// // will be as follows /QaRd/:username
-// app.get("/userResume", function(req, res) {
-// 	res.render("userResume", 
-// 		{
-// 			userFirstName: "Andy",
-// 			userLastName: "Durette",
-// 			userEmail: "duretteandy@gmail.com",
-// 			userPhone: "6476077597",
-// 			userCompany: "U of T Student",
-// 			userRole: "Full Stack Developer",
-// 			userPortfolio: "andydurette.com",
-// 			userLinkedIn: "https://www.linkedin.com/in/andy-durette/",
-// 			userInstagram: "https://www.instagram.com/andy_cooks/?hl=en",
-// 			userStyle: "carbon"
-// 		});
-// });
+// will be as follows /QaRd/:username
+app.get("/userResume", function(req, res) {
+
+	userStyle = "geometry";
+	let carbon = false;
+	let geometry = false;
+	let trendy = false;
+	let simple = false;
+
+	if (userStyle === "carbon"){
+		carbon = true
+	}
+
+	if (userStyle === "geometry"){
+		geometry = true
+	}
+
+	if (userStyle === "trendy"){
+		trendy = true
+	}
+
+	if (userStyle === "simple"){
+		simple = true
+	}
+
+	res.render("userResume", 
+		{
+			userFirstName: "John",
+			userLastName: "Doe",
+			userEmail: "JohnDoe@gmail.com",
+			userPhone: "456-4567-4567",
+			userCompany: "Point & Shoot",
+			userRole: "Photographer",
+			userPortfolio: "johndoephotography.com",
+			userLinkedIn: "https://www.linkedin.com/in/john-doe/",
+			userInstagram: "https://www.instagram.com/john_doe_photography/?hl=en",
+			carbon: carbon,
+			geometry: geometry,
+			trendy: trendy,
+			simple: simple
+		});
+});
 
 // /*  POST REQUEST */
 // app.post("/api/updateUser", redirectLogin, (req, res) => {

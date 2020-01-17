@@ -21,13 +21,21 @@
 <link rel="stylesheet" href="/assets/css/userPageStyles.css">
 <section id="userDisplay">
 
-<div id="heading">
-  <h1>Welcome <span id='headingUserName'>{{username}}</span></h1>
-</div>
 
+<header>
+  <nav>
+      <a href="index.html" id="logo">Welcome&nbsp;<span id='headingUserName'>{{username}}</span></a>
+    <ul>
+      <li><a href="index.html">Home / Info</a></li>
+      <span>|</span>
+      <li><a class="active" href="signin.html">Sign in / Login In</a></li>
+    </ul>
+  </nav>
+</header>
 <div id='logOutContainer'  >
   <p id='logOut'>Logout</p>
 </div>
+
 
 
   <!-- Form Field -->
