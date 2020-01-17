@@ -8,13 +8,12 @@ $( document ).ready(function() {
 	
 	// 3. User data sent to server to be dealt with by mysql database using AJAX
 	let saveUser = function(userInfo) {
-		const a = document.getElementById("headingUserName").innerText;
-		console.log(a);
 		return $.ajax({
 			url: "/api/updateUser",
 			data: userInfo,
 			method: "POST"
-		});	
+		})
+			.catch(err=>console.log(err));
 	};
   
 	// 2. Send user info to ajax function in form of an object for the server to use with mysql to create user profile and generate business QaRd
