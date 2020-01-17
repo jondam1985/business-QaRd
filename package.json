@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Web app that generates digital business cards",
   "main": "server.js",
+  "engines": { 
+    "node": "12.9.1" 
+  },
   "scripts": {
     "test": "eslint . --ext .js",
     "start": "nodemon server.js",
