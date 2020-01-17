@@ -1,0 +1,150 @@
+html,body{
+  height:100%;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  color:#172328;
+  font-size:1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #fff;
+  max-width:450px;
+  max-height:900px;
+  margin:0 auto;
+  position:relative;
+}
+
+.trendyHeader{
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
+
+p{
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+a{
+  color:#172328;
+}
+
+
+
+#container { 
+  display:flex; 
+  flex-direction:column;
+  width:100%;
+  border-radius: 0 50px 0 0;
+  padding: 40px 0;
+  margin-right:30px;
+}
+
+#container div {
+  display:flex; 
+  flex-direction:row;
+  justify-content: flex-start;
+  margin: 2.5px 0;
+  align-items:center;
+  width:100%;
+}
+
+#container div > div:first-of-type{
+  padding: 10px;
+  width: 65px;
+  height: 55px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-left: 10px;
+  border: 3px solid #43a04b;
+}
+
+#container div:nth-of-type(1){
+  font-family: 'Anton', sans-serif;
+}
+
+/* rounding edges end*/
+
+#container div > div:last-of-type{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color Settings */
+/* Names */
+#container div > div:first-of-type{
+  background-color: #fff;
+  border-radius: 65px 55px ;
+}
+
+#container div:nth-of-type(1) > div:last-of-type p{
+  text-transform: uppercase;
+  font-weight:500;
+  font-size:1.5em;
+}
+
+#landscapeMessage{
+  position: absolute;
+  color:white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:none;
+  font-size:1.25em;
+}
+
+#landscapeMessage i{
+  text-align: center;
+  font-size:2em;
+  width:100%;
+}
+
+/* Force Orientation View  to portrit for a consistent style*/
+
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  #container {
+    display:none;
+  }
+
+  .trendyHeader{
+    display:none;
+  }
+
+  html,body{
+    background-color:#172328;
+  }
+
+  #landscapeMessage{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:80%;
+  }
+
+  #landscapeMessage div:nth-of-type(1){
+    flex-grow: 2;
+    padding: 0 10px;
+  }
+
+  #landscapeMessage div:nth-of-type(2){
+    flex-grow: 1;
+  }
+
+  body{
+    border:none;
+  }
+}
+
+/* Low height Phones */
+@media only screen and (max-width: 700px) {
+  .geometryHeader{
+    margin-top:-50px;
+  }
+}

@@ -1,0 +1,222 @@
+/* Global Styles */
+html, body{
+  height: 100%;
+}
+
+body{
+  background-repeat: repeat;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: #273238;
+}
+
+h1,h2,h3,h4,h5{
+  font-family: 'Roboto', sans-serif;
+}
+
+header{
+  background-color:#273238;
+  border-bottom: 5px solid #7977a8;
+}
+
+/* Added for sticky footer */
+.sticky-footer-wrapper {
+  flex: 1 0 auto;
+}
+
+/* Navigation styles */
+nav{
+  width:100%;
+  max-width:960px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: flex-end;
+  flex-direction:column;
+}
+
+nav ul a{
+  color:#777;
+  text-decoration:none;
+  font-weight:500;
+  font-size:1.2em;
+  margin: 0 5px;
+}
+
+nav ul span{
+  color:#777;
+}
+
+nav > a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none;
+  margin:0;
+  margin-right:auto;
+  background-color: #474967;
+  color:white;
+  height:90px;
+  width:100%;
+  font-size:2.2em;
+  font-weight:600; 
+}
+
+nav ul{
+  padding-left:0;
+}
+
+nav li{
+list-style-type:none;
+display:inline-block;
+}
+
+nav li a.active, nav li a:hover{
+  color:#fff;
+  cursor:pointer;
+}
+
+
+
+section{
+  width:100%;
+  max-width:960px;
+  margin: 20px auto;
+  padding: 0 30px 20px 30px;
+  background-color:white;
+  box-sizing: border-box;
+  /*flex: 1 0 auto; */
+}
+
+
+section h1{
+  color:#474967;
+  padding:30px 0;
+  border-bottom: 5px solid #7977a8;
+  margin-top:5px;
+}
+
+section p {
+  font-size:1.2em;
+  line-height:1.5em;
+}
+
+
+
+/* Contact page styles */
+/* Form mostly taken from w3c then minorly modified*/
+/*  [] Shows it is targeting an attribute */
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #7977a8;
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #474967;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+#cardDisplay{
+  display:flex;
+  flex-direction:column;
+}
+
+#cardDisplay div{
+  width:75%;
+  margin:0 auto;
+  margin-bottom:20px;
+}
+
+#cardDisplay img{
+  width:100%;
+}
+
+
+
+/* Footer styles */
+footer{
+  background-color:#273238;
+  color:white;
+  border-top: 8px solid #474967;
+  width: 100%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items:center;
+  display:flex;
+  height:60px;
+}
+
+footer p{
+  margin:0px;
+}
+
+
+
+
+/* Media Queries */
+
+/* Declared as a requirement of the assignment but not used as the layout didn't require it */
+@media only screen and (min-width: 640px) {
+
+  #cardDisplay{
+    display:flex;
+    flex-direction:row;
+  }
+
+  #cardDisplay div{
+    max-width:22.5%;
+    margin-left:1.25%;
+    margin-right:1.25%;
+    flex-direction:row;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    flex-direction:row;
+    height:90px;
+  }
+  nav > a{
+    width:250px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size:3em;
+  }
+  nav ul{
+    justify-content: flex-end;
+  }
+
+  section p {
+    display:flex;
+    align-items: center;
+  }
+  
+  #about p{
+  flex-direction: row;
+  display:block;
+  }
+  #about p img {
+    padding: 30px 150px 30px 25px;
+    margin-right:20px;
+    width:25%;
+    float: left;
+  }
+}
+
+/* Declared as a requirement of the assignment but not used as the layout didn't require it */
+@media only screen and (min-width: 980px) {
+
+}

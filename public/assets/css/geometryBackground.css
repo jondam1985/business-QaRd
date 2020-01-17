@@ -1,0 +1,161 @@
+html,body{
+  height:100%;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  color:#172328;
+  font-size:1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #fff;
+  max-width:450px;
+  max-height:900px;
+  margin:0 auto;
+  position:relative;
+  border-right: 18px solid #7977a8;
+}
+
+.geometryHeader{
+  position:absolute;
+  top:0;
+  width:calc(100% + 35px);
+}
+
+p{
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+a{
+  color:#172328;
+}
+
+
+
+#container { 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 0;
+}
+
+#container div {
+  display:flex; 
+  flex-direction:row;
+  justify-content: flex-start;
+  margin: 2.5px 0;
+  align-items:center;
+  width:100%;
+}
+
+#container div > div:first-of-type{
+  padding: 10px;
+  width: 65px;
+  height: 55px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-left: 10px;
+  background-color: #7977a8;
+  border-radius: 55px 55px ;
+  color:white;
+}
+
+#container div:nth-of-type(1){
+  font-family: 'Anton', sans-serif;
+  border-bottom: 10px solid #7977a8;
+  margin-bottom:10PX;
+  padding-bottom:10px;
+}
+
+#container div:nth-of-type(1) > div:first-of-type, #container div:nth-of-type(3) > div:first-of-type{
+  background-color: #474867;
+  border-bottom: 5px solid #7977a8;
+}
+
+#container div:nth-of-type(2) > div:first-of-type, #container div:nth-of-type(4) > div:first-of-type{
+  background-color: #7977a8;
+  border-bottom: 5px solid #474867;
+}
+
+/* rounding edges end*/
+
+#container div > div:last-of-type{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color Settings */
+/* Names */
+
+#container div:nth-of-type(1) > div:last-of-type p{
+  text-transform: uppercase;
+  font-weight:500;
+  font-size:1.5em;
+}
+
+#landscapeMessage{
+  position: absolute;
+  color:white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:none;
+  font-size:1.25em;
+}
+
+
+
+#landscapeMessage i{
+  text-align: center;
+  font-size:2em;
+  width:100%;
+}
+
+/* Force Orientation View  to portrit for a consistent style*/
+
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  #container {
+    display:none;
+  }
+
+  .geometryHeader{
+    display:none;
+  }
+
+  html,body{
+    background-color:#172328;
+  }
+
+  #landscapeMessage{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:80%;
+  }
+
+  #landscapeMessage div:nth-of-type(1){
+    flex-grow: 2;
+    padding: 0 10px;
+  }
+
+  #landscapeMessage div:nth-of-type(2){
+    flex-grow: 1;
+  }
+
+  body{
+    border:none;
+  }
+}
+
+/* Low height Phones */
+@media only screen and (max-width: 700px) {
+  .geometryHeader{
+    margin-top:-50px;
+  }
+}

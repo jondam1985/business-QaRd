@@ -1,1 +1,46 @@
-{{>signIn}}
+<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<script src="assets/js/yearScript.js"></script>
+
+<body>
+<div class="sticky-footer-wrapper">
+<header>
+  <nav>
+      <a href="/" id="logo">QaRds</a>
+    <ul>
+      <li><a class="active" href="/">Home / Info</a></li>
+      <span>|</span>
+      <li><a href="portfolio.html">Sign in / Login In</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Navigation and footer are always the same on each page I set the sections to have their own id's in case of overlap with css -->
+<section id="about">
+<h1>About QaRds</h1>
+<p>
+  Here at QaRds we thought about the digital age and how more and more it fulfills commands on the go. However more so in an age of environmental waste,
+  ever piece of paper less used or bag from the store is a little better for our planet. 
+</p>
+<p>
+  Hence where we come in we recognize that business cards are still neccessary however with QaRds you can make a professional looking business cards in a few minutes and
+  share it with a QR code or a button click at marketing events.
+</p>
+<p>
+  Qards has multiple styles to choose from as well our current selection is below.
+</p>
+
+<div id="cardDisplay">
+  <div><img src="assets/images/geometry.jpg" alt="business card in a geometric design"></div> 
+  <div><img src="assets/images/trendy.jpg" alt="business card in a trendy design"></div>
+  <div><img src="assets/images/carbon.jpg" alt="business card in a carbon design"></div>
+  <div><img src="assets/images/simple.jpg" alt="business card in a simple design"></div>
+</div>
+</section>
+</div>
+
+<footer>
+  <p>copyright ©<span id="year"></span></p>
+</footer>
+
+</body></html>

@@ -1,0 +1,162 @@
+html,body{
+  height:100%;
+}
+
+body{
+  background-color:#f4f5f9;
+  font-family: 'Roboto', sans-serif;
+  font-size:1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+a{
+  color:black;
+}
+
+#container { 
+  display:flex; 
+  flex-direction:column;
+  width:100%;
+}
+
+#container div {
+  display:flex; 
+  flex-direction:row;
+  justify-content: flex-start;
+  margin: 2.5px 0;
+  align-items:center;
+  width:100%;
+}
+
+#container div > div:first-of-type{
+  padding: 10px;
+  width: 50px;
+  min-height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#container > div:nth-of-type(1){
+  font-family: 'Anton', sans-serif;
+}
+
+#container > div:nth-of-type(1){
+  border-bottom:1px solid black;
+  padding-bottom:10px;
+}
+
+/* rounding edges start */
+#container div:first-of-type > div:first-of-type{
+  border-radius: 0 10% 0 0;
+}
+
+#container div:last-of-type > div:first-of-type{
+  border-radius: 0 0 10% 0;
+}
+/* rounding edges end*/
+
+#container div > div:last-of-type{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color Settings */
+/* Names */
+
+#container div:nth-of-type(1) > div:last-of-type p{
+  text-transform: uppercase;
+  font-weight:500;
+  font-size:1.5em;
+}
+
+
+/* Force Orientation View  to portrit for a consistent style*/
+
+@media screen and (orientation: landscape) and (max-device-width: 700px) {
+  #container {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+  }
+}
+
+/* Hide other content */
+
+/* Hide other content */
+
+#container.geometry{
+  display:none;
+}
+
+#landscapeMessage{
+  position: absolute;
+  color:white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:none;
+  font-size:1.25em;
+}
+
+#landscapeMessage i{
+  text-align: center;
+  font-size:2em;
+  width:100%;
+}
+
+/* Force Orientation View  to portrit for a consistent style*/
+
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
+  #container {
+    display:none;
+  }
+
+  .trendyHeader{
+    display:none;
+  }
+
+  html,body{
+    background-color:#172328;
+    background-image:none;
+  }
+
+  #landscapeMessage{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:80%;
+  }
+
+  #landscapeMessage div:nth-of-type(1){
+    flex-grow: 2;
+    padding: 0 10px;
+  }
+
+  #landscapeMessage div:nth-of-type(2){
+    flex-grow: 1;
+  }
+
+  body{
+    border:none;
+  }
+}
+
+/* Low height Phones */
+@media only screen and (max-width: 700px) {
+  .geometryHeader{
+    margin-top:-50px;
+  }
+}

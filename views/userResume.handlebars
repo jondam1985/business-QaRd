@@ -1,48 +1,15 @@
-<link rel="stylesheet" href="/assets/css/{{userStyle}}Background.css">
+ {{#if carbon}}
+  {{>carbon}}
+ {{/if}}
 
-<section id="container">
+ {{#if geometry}}
+  {{>geometry}}
+ {{/if}}
 
-<!-- Name -->
-<div>
-  <div>
-    <i class="fas fa-user"></i>
-  </div>
-  <div>
-    <p>{{userFirstName}}</p>
-    <p>{{userLastName}}</p>
-  </div>
-</div>
+ {{#if trendy}}
+  {{>trendy}}
+ {{/if}}
 
-<!-- Number -->
-<div>
-  <div>
-    <i class="fas fa-address-card"></i>
-  </div>
-  <div>
-    <p>{{userPhone}}</p>
-    <p>{{userEmail}}</p>
-  </div>
-</div>
-
-<div>
-  <div>
-    <i class="fas fa-briefcase"></i>
-  </div>
-  <div>
-    <p>{{userCompany}}</p>
-    <p>{{userRole}}</p>
-  </div>
-</div>
-
-<div>
-  <div>
-    <i class="fas fa-clipboard-list"></i>
-  </div>
-  <div>
-     <p><a href="{{userPortfolio}}">View my Portfolio</a></p>
-     <p><a href="{{userLinkedIn}}">View my LinkedIn</a></p>
-     <p><a href="{{userInstagram}}">View my Instagram</a></p>
-  </div>
-</div>
-
-</section>
+{{#if simple}}
+  {{>simple}}
+ {{/if}}
