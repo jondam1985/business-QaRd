@@ -1,12 +1,9 @@
-
-
 <link rel="stylesheet" href="/assets/css/userPageStyles.css">
 <section id="userDisplay">
 
-
 <header>
   <nav>
-      <a href="index.html" id="logo">Welcome&nbsp;<span id='headingUserName'>{{username}}</span></a>
+      <a href="/" id="logo">Welcome&nbsp;<span id='headingUserName'>{{username}}</span></a>
     <ul>
       <li><a href="/">Home</a></li>
       <span>|</span>
@@ -14,8 +11,6 @@
     </ul>
   </nav>
 </header>
-
-
 
   <!-- Form Field -->
 <form action="javascript:void(0);" id="regForm" method="POST">
@@ -70,10 +65,32 @@
 <div>
 
 <button id="userSubmit" type="submit">Save</button>
+<button id="qrGenerate">Generate QR</button>
+
 </form>
 
 
 </section>
+
+
+<!-- Modal -->
+
+  <div class="modalOverlay hide" id="modalOverlay"></div>
+  <div class="modal hide" id="modal">
+    <button class="close-button" id="close-button">X</button>
+    <div class="modal-guts">
+       <section id="options">
+          <div class="questionBox">
+            <iframe width="300" height="300" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={url}"></iframe>
+         
+           
+       </section>
+    </div>
+ </div>
+
+ <!-- Modal End -->
+
+
 
 <script>
   const logOut = (e) => {
@@ -83,4 +100,15 @@
   }
 
   document.getElementById('logOut').addEventListener('click',logOut);
+
+
+   document.getElementById('qrGenerate').addEventListener("click", () => {
+      document.getElementById("modal").classList.remove("hide");
+      document.getElementById("modalOverlay").classList.remove("hide");
+    });
+
+    document.getElementById('close-button').addEventListener("click", () => {
+        document.getElementById("modal").classList.add("hide");
+        document.getElementById("modalOverlay").classList.add("hide");
+    });
 </script>
