@@ -75,22 +75,18 @@
 
 <!-- Modal -->
 
-  <div class="modalOverlay hide" id="modalOverlay"></div>
-  <div class="modal hide" id="modal">
-    <button class="close-button" id="close-button">X</button>
-    <div class="modal-guts">
-       <section id="options">
-          <div class="questionBox">
-            <iframe width="300" height="300" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={url}"></iframe>
-         
-           
-       </section>
-    </div>
- </div>
+<div class="modalOverlay hide" id="modalOverlay"></div>
+<div class="modal hide" id="modal">
+  <button class="close-button" id="close-button">X</button>
+  <div class="modal-guts">
+    <section id="options">
+      <div class="questionBox">
+        <iframe width="300" height="300" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{url}}"></iframe>
+    </section>
+  </div>
+</div>
 
  <!-- Modal End -->
-
-
 
 <script>
   const logOut = (e) => {
@@ -102,13 +98,15 @@
   document.getElementById('logOut').addEventListener('click',logOut);
 
 
-   document.getElementById('qrGenerate').addEventListener("click", () => {
-      document.getElementById("modal").classList.remove("hide");
-      document.getElementById("modalOverlay").classList.remove("hide");
-    });
+  document.getElementById('qrGenerate').addEventListener("click", () => {
+    document.getElementById("modal").classList.remove("hide");
+    document.getElementById("modalOverlay").classList.remove("hide");
 
     document.getElementById('close-button').addEventListener("click", () => {
-        document.getElementById("modal").classList.add("hide");
-        document.getElementById("modalOverlay").classList.add("hide");
+      document.getElementById("modal").classList.add("hide");
+      document.getElementById("modalOverlay").classList.add("hide");
     });
+    
+  });
+
 </script>

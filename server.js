@@ -127,7 +127,7 @@ app.get("/userProfile/:user" , redirectLogin , async (req,res)=>{
 			fractalCard: fractalCard,
 			geometryCard: geometryCard,
 			standardCard: standardCard,
-			savedMsg: "Saved!"   
+			url: `${req.headers.host + req.originalUrl}`   
 		});
 	}
 });
