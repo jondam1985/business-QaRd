@@ -113,26 +113,26 @@ app.post("/api/updateUser" ,redirectLogin, async (req,res)=>{
 // will be as follows /QaRd/:username
 app.get("/userResume", function(req, res) {
 
-	userStyle = "geometry";
+	let userStyle = "geometry";
 	let carbon = false;
 	let geometry = false;
 	let trendy = false;
 	let simple = false;
 
 	if (userStyle === "carbon"){
-		carbon = true
+		carbon = true;
 	}
 
 	if (userStyle === "geometry"){
-		geometry = true
+		geometry = true;
 	}
 
 	if (userStyle === "trendy"){
-		trendy = true
+		trendy = true;
 	}
 
 	if (userStyle === "simple"){
-		simple = true
+		simple = true;
 	}
 
 	res.render("userResume", 
