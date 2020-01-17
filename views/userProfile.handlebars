@@ -1,22 +1,4 @@
-<style>
-  #logOut{
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    width: 60px;
-  }
 
-  #logOut:hover{
-    color: cadetblue;
-  }
-
-  #logOutContainer{
-    background-color: rgb(143, 223, 206);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-</style>
 
 <link rel="stylesheet" href="/assets/css/userPageStyles.css">
 <section id="userDisplay">
@@ -26,15 +8,12 @@
   <nav>
       <a href="index.html" id="logo">Welcome&nbsp;<span id='headingUserName'>{{username}}</span></a>
     <ul>
-      <li><a href="index.html">Home / Info</a></li>
+      <li><a href="/">Home</a></li>
       <span>|</span>
-      <li><a class="active" href="signin.html">Sign in / Login In</a></li>
+      <li><a id='logOut'>Logout</a></li>
     </ul>
   </nav>
 </header>
-<div id='logOutContainer'  >
-  <p id='logOut'>Logout</p>
-</div>
 
 
 
