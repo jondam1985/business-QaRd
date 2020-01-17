@@ -84,7 +84,6 @@ app.get("/logout" , async (req, res) => {
 		if (err) {
 			return res.redirect("/signIn");
 		}
-
 		res.clearCookie(SESS_NAME);
 		res.redirect("/signIn");
 	});
@@ -93,10 +92,46 @@ app.get("/logout" , async (req, res) => {
 app.get("/userProfile/:user" , redirectLogin , async (req,res)=>{
 	const {user} = req.params;
 	const data = await controllers.getUserProfile(user);
-	res.render("userProfile",{
-		username: data.userName
-	});
+	const result = await controllers.userProfileExists(data);
+	if (result === false) {
+		res.render("userProfile",{
+			username: data.userName
+		});
+	} else {
+
+		let carbonCard; let fractalCard ;
+		let geometryCard; let standardCard;
+
+		if ( result["cardStyle"] === "carbon"){
+			carbonCard = "checked";
+		} else if  ( result["cardStyle"] === "fractal") {
+			fractalCard = "checked";
+		} else if  ( result["cardStyle"] === "geometry"){
+			geometryCard = "checked";
+		}else if  ( result["cardStyle"] === "standard") {
+			standardCard = "checked";
+		}
+
+		res.render("userProfile",{
+			username: data.userName,
+			firstname: result["first_name"],
+			lastname: result["last_name"],
+			email: result["email"],
+			phone: result["phone"],
+			role: result["role"],
+			company: result["company"],
+			linkedin: result["linkedin"],
+			portfolio: result["portfolio"],
+			instagram: result["instagram"],
+			carbonCard: carbonCard,
+			fractalCard: fractalCard,
+			geometryCard: geometryCard,
+			standardCard: standardCard,
+			savedMsg: "Saved!"   
+		});
+	}
 });
+
 
 app.post("/api/updateUser" ,redirectLogin, async (req,res)=>{
 	let submitedData = req.body;
@@ -106,8 +141,10 @@ app.post("/api/updateUser" ,redirectLogin, async (req,res)=>{
 		res.status(400).send();
 	} else {
 		controllers.submitTheData(submitedData , uniq_id );
+		res.status(200).send();
 	}
 });
+
 
 // will be as follows /QaRd/:username
 app.get("/userResume", function(req, res) {
@@ -157,7 +194,6 @@ app.get("/userResume", function(req, res) {
 // 	console.log(req.body);
 // 	res.send("200");
 // });
-
 
 
 app.listen(PORT, function() {

@@ -74,7 +74,6 @@ const userExists = async (user) => {
 const handleSignIn = async (req, res, result , user , pass) => {
 	if ((bcrypt.compareSync(pass, result[0]["hashCode"])) === true){
 		req.session.userId = result[0]["unique_id"];
-		// console.log(result[0]["unique_id"],'!?')
 		res.send({goTo: `userProfile/${result[0]["unique_id"]}`});
 		return;
 	}
@@ -119,8 +118,17 @@ const submitTheData = async (submitedData , uniq_id ) => {
 			//refresh page
 		}
 	}
-  
 };
+
+const userProfileExists = async (data)=>{
+	const result = await query.checkUserProfileExists(data["unique_id"]);
+	if(result.length){
+		return result[0];
+	} else {
+		return false;
+	}
+};
+
 
 module.exports = {
 	userExists,
@@ -129,5 +137,6 @@ module.exports = {
 	dataCleaner,
 	cleanUserData,
 	getUserProfile,
-	submitTheData
+	submitTheData,
+	userProfileExists,
 };
