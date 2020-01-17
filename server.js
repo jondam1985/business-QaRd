@@ -89,7 +89,7 @@ app.get("/logout" , async (req, res) => {
 	});
 });
 
-app.get("/userProfile/:user" , redirectLogin , async (req,res)=>{
+app.get("/userProfile/:user" , async (req,res)=>{
 	const {user} = req.params;
 	const data = await controllers.getUserProfile(user);
 	const result = await controllers.userProfileExists(data);
