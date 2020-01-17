@@ -1,6 +1,6 @@
 const query = require("../models/model.js").module.query;
 const uuidv1 = require("uuid/v1");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const dataCleaner = async (...data) => {
 	let newData =  data.map(  (a) => { 
