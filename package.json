@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "eslint . --ext .js",
+    "fix": "eslint . --fix --ext .js",
     "start": "nodemon server.js",
     "lint": "eslint"
   },

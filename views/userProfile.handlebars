@@ -65,7 +65,7 @@
 <div>
 
 <button id="userSubmit" type="submit">Save</button>
-<button id="qrGenerate">Generate QR</button>
+<button id="qrGenerate" class="{{diactivated}}" >Generate QR</button>
 
 </form>
 
@@ -74,17 +74,9 @@
 
 
 <!-- Modal -->
-
-<div class="modalOverlay hide" id="modalOverlay"></div>
-<div class="modal hide" id="modal">
-  <button class="close-button" id="close-button">X</button>
-  <div class="modal-guts">
-    <section id="options">
-      <div class="questionBox">
-        <iframe width="300" height="300" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{url}}"></iframe>
-    </section>
-  </div>
-</div>
+  {{#if url}}
+    {{>link}}
+  {{/if}} 
 
  <!-- Modal End -->
 

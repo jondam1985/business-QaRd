@@ -121,11 +121,14 @@ const submitTheData = async (submitedData , uniq_id ) => {
 };
 
 const userProfileExists = async (data)=>{
-	const result = await query.checkUserProfileExists(data["unique_id"]);
-	if(result.length){
-		return result[0];
-	} else {
-		return false;
+	let result;
+	if (data){
+		result = await query.checkUserProfileExists(data["unique_id"]);
+		if(result.length){
+			return result[0];
+		} else {
+			return false;
+		}
 	}
 };
 

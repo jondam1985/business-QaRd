@@ -276,3 +276,9 @@ button:hover {
   display:none;
 }
 
+.diactivated{
+  background-color: grey;
+}
+.diactivated:hover{
+  background-color: grey;
+}

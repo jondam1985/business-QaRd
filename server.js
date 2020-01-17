@@ -89,13 +89,16 @@ app.get("/logout" , async (req, res) => {
 	});
 });
 
-app.get("/userProfile/:user" , async (req,res)=>{
+app.get("/userProfile/:user" , redirectLogin,  async (req,res)=>{
 	const {user} = req.params;
 	const data = await controllers.getUserProfile(user);
 	const result = await controllers.userProfileExists(data);
 	if (result === false) {
 		res.render("userProfile",{
-			username: data.userName
+			username: data.userName,
+			url: null,
+			diactivated:"diactivated",
+			carbonCard: "checked",
 		});
 	} else {
 
@@ -111,7 +114,6 @@ app.get("/userProfile/:user" , async (req,res)=>{
 		}else if  ( result["cardStyle"] === "standard") {
 			standardCard = "checked";
 		}
-
 		res.render("userProfile",{
 			username: data.userName,
 			firstname: result["first_name"],
@@ -127,7 +129,7 @@ app.get("/userProfile/:user" , async (req,res)=>{
 			fractalCard: fractalCard,
 			geometryCard: geometryCard,
 			standardCard: standardCard,
-			url: `${req.headers.host + req.originalUrl}`   
+			url: `${ req.headers.host + "/QaRd/" + result["unique_id"] }`   
 		});
 	}
 });
@@ -141,59 +143,50 @@ app.post("/api/updateUser" ,redirectLogin, async (req,res)=>{
 		res.status(400).send();
 	} else {
 		controllers.submitTheData(submitedData , uniq_id );
-		res.status(200).send();
+		setTimeout(()=>{res.status(200).send({OK:"OK"});},500);
 	}
 });
 
 
 // will be as follows /QaRd/:username
-app.get("/userResume", function(req, res) {
+app.get("/QaRd/:id", async (req, res) => {
+	const {id} = req.params;
+	const data = await controllers.getUserProfile(id);
+	const result = await controllers.userProfileExists(data);
+	if (result === undefined){
+		res.status(404).send();
+	} else {
 
-	let userStyle = "geometry";
-	let carbon = false;
-	let geometry = false;
-	let trendy = false;
-	let simple = false;
+		let carbonCard; let fractalCard ;
+		let geometryCard; let standardCard;
 
-	if (userStyle === "carbon"){
-		carbon = true;
-	}
-
-	if (userStyle === "geometry"){
-		geometry = true;
-	}
-
-	if (userStyle === "trendy"){
-		trendy = true;
-	}
-
-	if (userStyle === "simple"){
-		simple = true;
-	}
-
-	res.render("userResume", 
-		{
-			userFirstName: "John",
-			userLastName: "Doe",
-			userEmail: "JohnDoe@gmail.com",
-			userPhone: "456-4567-4567",
-			userCompany: "Point & Shoot",
-			userRole: "Photographer",
-			userPortfolio: "johndoephotography.com",
-			userLinkedIn: "https://www.linkedin.com/in/john-doe/",
-			userInstagram: "https://www.instagram.com/john_doe_photography/?hl=en",
-			carbon: carbon,
-			geometry: geometry,
-			trendy: trendy,
-			simple: simple
+		if ( result["cardStyle"] === "carbon"){
+			carbonCard = true;
+		} else if  ( result["cardStyle"] === "fractal") {
+			fractalCard = true;
+		} else if  ( result["cardStyle"] === "geometry"){
+			geometryCard = true;
+		}else if  ( result["cardStyle"] === "standard") {
+			standardCard = true;
+		}
+		res.render("userResume",{
+			carbon:carbonCard,
+			geometry:geometryCard,
+			trendy:fractalCard,
+			simple:standardCard,
+			userFirstName: result["first_name"],
+			userLastName: result["last_name"],
+			userEmail: result["email"],
+			userPhone: result["phone"],
+			userRole: result["role"],
+			userCompany: result["company"],
+			userLinkedIn: result["linkedin"],
+			userPortfolio: result["portfolio"],
+			userInstagram: result["instagram"]
 		});
+	}
 });
 
-// /*  POST REQUEST */
-// app.post("/api/updateUser", redirectLogin, (req, res) => {
-// 	console.log(req.body);
-// 	res.send("200");
-// });
 
 
 app.listen(PORT, function() {
