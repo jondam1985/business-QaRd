@@ -10,10 +10,9 @@ const app = express();
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
+const PORT = process.env.PORT || 9090;
 const TIME = 1000 * 60 * 15;
 const {
-	PORT = 9090,
 
 	//cookie related
 	SESS_NAME = "sid",
