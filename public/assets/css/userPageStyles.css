@@ -166,7 +166,8 @@ button:hover {
     height:90px;
   }
   nav > a{
-    width:250px;
+    width:auto;
+    padding: 0 20px;
     font-family: 'Share Tech Mono', monospace;
     font-size:3em;
   }
