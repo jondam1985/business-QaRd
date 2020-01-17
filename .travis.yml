@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - stable
+before_install:
+- npm install -g npm@latest
 deploy:
   provider: heroku
   #:
@@ -11,3 +13,4 @@ deploy:
   on:
     repo: jondam1985/business-QaRd
     branch: master
+
