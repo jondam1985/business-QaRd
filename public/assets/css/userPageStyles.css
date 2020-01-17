@@ -3,7 +3,7 @@ body{
 }
 
 /* Style the form */
-#regForm {
+#regForm, #signInForm {
   background-color: #ffffff;
   margin: 0px auto;
   padding: 20px;
@@ -273,8 +273,6 @@ button:hover {
 
 
 .hide{
-  display: none;
+  display:none;
 }
-
-
 

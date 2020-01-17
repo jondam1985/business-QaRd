@@ -1,35 +1,18 @@
-<style>
-  #signInAndSignUp{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #signInForm{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .button{
-    width: 200px;
-    height: 40px;
-    border-radius: 5px;
-    margin: 3px;
-    border: 1px solid rgba(199, 199, 199, 0.753);
-    background-color: rgb(138, 218, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(0, 105, 14);
-  }
-  #errMsgs{
-    color: red
-  }
-
-</style>
+<link rel="stylesheet" href="/assets/css/userPageStyles.css">
 
 <section id='signInAndSignUp' >
+<header>
+  <nav>
+      <a href="/" id="logo">QaRds</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <span>|</span>
+      <li><a class="active" href="/signIn">Sign In/Up</a></li>
+    </ul>
+  </nav>
+</header>
+
+
   <form action="javascript:void(0)" id='signInForm' >
     <label for="user">User</label>
     <input id='user' type="user" >
