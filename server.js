@@ -12,14 +12,18 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 const TIME = 1000 * 60 * 15;
-const {
-	PORT = 9090,
 
+const PORT = process.env.PORT || 9090;
+
+const {
 	//cookie related
 	SESS_NAME = "sid",
 	SESS_SECRET = "thisIsTheSecretKey",
 	SESS_LIFETIME = TIME //set to 15 minutes
 } = process.env;
+
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
