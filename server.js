@@ -97,7 +97,8 @@ app.get("/userProfile/:user" , redirectLogin,  async (req,res)=>{
 		res.render("userProfile",{
 			username: data.userName,
 			url: null,
-			diactivated:"diactivated"
+			diactivated:"diactivated",
+			carbonCard: "checked",
 		});
 	} else {
 
@@ -142,7 +143,7 @@ app.post("/api/updateUser" ,redirectLogin, async (req,res)=>{
 		res.status(400).send();
 	} else {
 		controllers.submitTheData(submitedData , uniq_id );
-		res.status(200).send();
+		setTimeout(()=>{res.status(200).send({OK:"OK"});},500);
 	}
 });
 

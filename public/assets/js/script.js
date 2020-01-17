@@ -13,6 +13,11 @@ $( document ).ready(function() {
 			data: userInfo,
 			method: "POST"
 		})
+			.then(res=>{
+				if (res && res["OK"] ){
+					window.location.reload();
+				} 
+			})
 			.catch(err=>console.log(err));
 	};
   
@@ -94,16 +99,19 @@ $( document ).ready(function() {
 
 
 		if (errors === false){
-			saveUser(userInfo).then(function() {
-			// Checks if code ran
-				console.log("Success");
-			});
+			saveUser(userInfo)
+				.then(function() {
+					// Checks if code ran
+					console.log("Success");
+				})
+				.catch(err=>console.log(err));
 		}
 	};
   
 		
 	// 1. Makes call to handleUserInfoDelivery
-	$userSubmitBtn.on("click",  () => {
+	$userSubmitBtn.on("click", () => {
 		handleUserInfoDelivery();
+
 	});
 });
