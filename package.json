@@ -6,6 +6,9 @@
   "engines": {
     "node": "12.9.1"
   },
+  "standard": {
+    "env": [ "mocha" ]
+  },
   "scripts": {
     "test": "eslint . --ext .js",
     "fix": "eslint . --fix --ext .js",
