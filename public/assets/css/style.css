@@ -79,7 +79,7 @@ nav li a.active, nav li a:hover{
 
 
 
-#about, #userDisplay, #signInAndSignUp{
+#about, #userDisplay, #signInAndSignUp, #instructions{
   width:100%;
   max-width:960px;
   margin: 20px auto;
