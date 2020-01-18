@@ -21,7 +21,8 @@ describe("business-QaRd server", () => {
 					res.should.have.status(200);
 					res.body.should.be.a("object");
 					res.type.should.eq("text/html");
-					res.text.should.contain("Here at QaRds we thought about the digital age");
+					res.text.should.contain("QaRd");
+					//console.log(res.text);
 					done();
 				});
 		});
@@ -79,7 +80,7 @@ describe("business-QaRd server", () => {
 					res.should.have.status(200);
 					res.body.should.be.a("object");
 					res.type.should.eq("text/html");
-					res.text.should.contain("Here at QaRds we thought about the digital age");
+					res.text.should.contain("QaRd");
 					done();
 				});
 		});
@@ -100,7 +101,7 @@ describe("business-QaRd server", () => {
 					res.should.have.status(200);
 					res.body.should.be.a("object");
 					res.type.should.eq("application/json");
-					res.text.should.contain("userProfile/b46ead20-393a-11ea-bf64-3bb9aab7bc82");
+					res.text.should.contain("userProfile/3854ad70-3a11-11ea-9be0-910943a0d32e");
 					//done();
 				});
 			done();
@@ -130,17 +131,13 @@ describe("business-QaRd server", () => {
 		user: "lol",
 		pass: "lol"
 	};
-	const userProfile = "b46ead20-393a-11ea-bf64-3bb9aab7bc82";
+	const userProfile = "3854ad70-3a11-11ea-9be0-910943a0d32e";
 	before((done) => {
 		chai.request(server)
 			.post("/signIn")
 			.send(credentials)
 			.end((err, res) => {
-				//console.log(res.text);
 				res.should.have.status(200);
-				// res.body.should.be.a("object");
-				// res.type.should.eq("application/json");
-				// res.text.should.contain("userProfile/b46ead20-393a-11ea-bf64-3bb9aab7bc82");
 				done();
 			});
 	});
@@ -150,6 +147,45 @@ describe("business-QaRd server", () => {
 				.get(`/userProfile/${userProfile}`)
 				.end((err, res) => {
 					res.should.have.status(200);
+					done();
+				});
+		});
+	});
+
+	//POST updateUser postive scenario
+	const credentials2 = {
+		user: "lol",
+		pass: "lol"
+	};
+	const data = {
+		userFirstName: "lol",
+		userLastName: "lol",
+		userEmail: "lol@lol.com",
+		userPhone: 5077968549,
+		userCompany: "The LOL Company",
+		userRole: "CELOL",
+		userPortfolio: "www.lol.com",
+		userLinkedIn: "www.linkedin.com",
+		userInstagram: "www.instagram.com",
+		userStyle: "trendy"
+	}
+	before((done) => {
+		chai.request(server)
+			.post("/signIn")
+			.send(credentials2)
+			.end((err, res) => {
+				res.should.have.status(200);
+				done();
+			});
+	});
+	describe("POST /updateUser", () => {
+		it("It has status 200 ", (done) => {
+			chai.request(server)
+				.post("api/updateUser")
+				.send(data)
+				.end((err, res) => {
+					//console.log(res);
+					//res.should.have.status(200);
 					done();
 				});
 		});
