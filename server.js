@@ -108,7 +108,7 @@ app.get("/userProfile/:user" , redirectLogin,  async (req,res)=>{
 		if ( result["cardStyle"] === "carbon"){
 			carbonCard = "checked";
 		} else if  ( result["cardStyle"] === "trendy") {
-			trendylCard = "checked";
+			trendyCard = "checked";
 		} else if  ( result["cardStyle"] === "geometry"){
 			geometryCard = "checked";
 		}else if  ( result["cardStyle"] === "standard") {
