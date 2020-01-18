@@ -15,6 +15,19 @@ body{
   min-width: 200px;
 }
 
+.label{
+  color: rgb(121, 121, 121);
+}
+
+.inputMargin{
+  margin-bottom: 20px;
+  padding-left: 7px;
+}
+
+.inputPadding{
+  padding-left: 7px;
+}
+
 /* Style the input fields */
 input {
   padding: 5px 0;
@@ -304,4 +317,10 @@ footer p{
 }
 .diactivated:hover{
   background-color: grey;
+}
+
+
+#errMsgs{
+  color: red;
+  text-align: center;
 }

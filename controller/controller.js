@@ -76,6 +76,8 @@ const handleSignIn = async (req, res, result , user , pass) => {
 		req.session.userId = result[0]["unique_id"];
 		res.send({goTo: `userProfile/${result[0]["unique_id"]}`});
 		return;
+	} else {
+		return res.status(422).send();
 	}
 };
 
