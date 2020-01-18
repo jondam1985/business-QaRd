@@ -147,10 +147,3 @@ a{
     border:none;
   }
 }
-
-/* Low height Phones */
-@media only screen and (max-height: 800px) {
-  .geometryHeader{
-    margin-top:-65px;
-  }
-}
