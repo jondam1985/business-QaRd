@@ -7,7 +7,9 @@
     "node": "12.9.1"
   },
   "standard": {
-    "env": [ "mocha" ]
+    "env": [
+      "mocha"
+    ]
   },
   "scripts": {
     "test": "eslint . --ext .js",
