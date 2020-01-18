@@ -1,5 +1,3 @@
-
-
 <div class="modalOverlay hide" id="modalOverlay"></div>
 <div class="modal hide" id="modal">
   <button class="close-button" id="close-button">X</button>
@@ -7,6 +5,25 @@
     <section id="options">
       <div class="questionBox">
       <iframe width="300" height="300" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{url}}"></iframe>
+      <button id='share' >Share</button>
     </section>
   </div>
 </div>
+
+<script>
+  const share = document.getElementById("share");
+
+  share.addEventListener("click", function() {
+      if (navigator.share) {
+          navigator.share({
+              title: "This is awesome",
+              text: "But wait, there's more!",
+              url: `{{url}}`
+          })
+          .then(window.alert("thank you for sharing"));
+      }
+      else {
+          window.alert("This is for mobile-users only")
+      }
+  });
+</script>
