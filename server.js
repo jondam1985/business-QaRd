@@ -189,7 +189,8 @@ app.get("/QaRd/:id", async (req, res) => {
 
 
 
-app.listen(PORT, function() {
+module.exports = app.listen(PORT, function() {
 	// Log (server-side) when our server has started
 	console.log("Server listening on: http://localhost:" + PORT);
 });
+
