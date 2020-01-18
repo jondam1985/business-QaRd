@@ -70,7 +70,7 @@
 
 <button id="userSubmit" type="submit">Save</button>
 <button id="qrGenerate" class="{{diactivated}}" >Generate QR</button>
-<button id="qrPreview" class="{{diactivated}}" >View QaRd</button>
+<button id="qrPreview" class="{{diactivated}}" >Preview QaRd</button>
 
 </form>
 
@@ -93,6 +93,9 @@
 <script>
 //console.log(url);
 
+let decodedJson = decodeURIComponent("{{url}}");
+let urlToBe = "https://" + decodedJson;
+
   const logOut = (e) => {
     fetch( '/logout')
     .then(res=> window.location.href = window.location.origin )
@@ -105,23 +108,19 @@
   document.getElementById('qrGenerate').addEventListener("click", () => {
     document.getElementById("modal").classList.remove("hide");
     document.getElementById("modalOverlay").classList.remove("hide");
+    /* document.querySelector(".questionBox iframe").setAttribute("src", "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + urlToBe); */
+  });
 
     document.getElementById('close-button').addEventListener("click", () => {
       document.getElementById("modal").classList.add("hide");
       document.getElementById("modalOverlay").classList.add("hide");
-    });
-    
   });
 
-
-// My maybe Solution
-/*
-let url = {{url}}.toString();
-
  document.getElementById('qrPreview').addEventListener("click", () => {
-  let win = window.open(url, '_blank');
+
+  let win = window.open(urlToBe, '_blank');
   win.focus();
  });
-*/
+
 
 </script>
