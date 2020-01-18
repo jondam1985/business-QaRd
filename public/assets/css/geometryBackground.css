@@ -109,14 +109,11 @@ a{
   font-size:1.25em;
 }
 
-
-
 #landscapeMessage i{
   text-align: center;
   font-size:2em;
   width:100%;
 }
-
 /* Force Orientation View  to portrit for a consistent style*/
 
 @media screen and (orientation: landscape) and (max-device-width: 900px) {
@@ -154,8 +151,8 @@ a{
 }
 
 /* Low height Phones */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 500px) {
   .geometryHeader{
-    margin-top:-50px;
+    margin-top:-65px;
   }
 }

@@ -45,7 +45,10 @@ input:focus {
 
 input[type=radio] {
   border: 5px solid black;
+  width:20px;
+  margin-left: auto;
 }
+
 
 
 /* Mark input boxes that gets an error on validation: */
@@ -54,18 +57,28 @@ input.invalid {
 }
 
 .radio{
-  display:flex;
-  width:100%;
-  min-height:25px;
+  display: flex;
+  width: 100%;
+  min-height: 25px;
+  align-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.radio img{
+  width: 100px;
+  margin-left: 30px;
+  margin-right:10px;
+  border: 1px solid #666;
 }
 
 .radio label{
   display:block;
-  min-width:50px;
+  width:50px;
 }
 
-.radio input{
-  margin: 0 0 0 calc(100% - 63px);
+#buttons{
+  margin-top:10px;
 }
 
 #first_name_error, #last_name_error, #e_mail_error, #phone_error, #company_error, #role_error{
@@ -162,21 +175,7 @@ button:hover {
 /* Media Queries */
 
 /* Declared as a requirement of the assignment but not used as the layout didn't require it */
-@media only screen and (min-width: 640px) {
 
-  #cardDisplay{
-    display:flex;
-    flex-direction:row;
-  }
-
-  #cardDisplay div{
-    max-width:22.5%;
-    margin-left:1.25%;
-    margin-right:1.25%;
-    flex-direction:row;
-  }
-
-}
 
 @media only screen and (min-width: 768px) {
   nav {
@@ -306,6 +305,13 @@ footer p{
   padding: 5px 10px;
   font-size: 1.3rem;
 }
+
+#share{
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
 
 .hide{
   display:none;
