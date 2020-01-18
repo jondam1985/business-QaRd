@@ -19,10 +19,10 @@
 <section id='signInAndSignUp' >
   <h1>Sign In or Sign Up</h1>
   <form action="javascript:void(0)" id='signInForm' >
-    <label for="user">User</label>
-    <input id='user' type="user" >
-    <label for="password">Password</label>
-    <input id='pass' type="password" >
+    <label class="label" for="user">User</label>
+    <input id='user' class="inputMargin" type="user" >
+    <label class="label" for="password">Password</label>
+    <input id='pass' class="inputMargin" type="password" >
     <button class='button' id='singIn' data-sign='singIn' >Sign In</button>
     <button class='button' id='signUp' data-sign='signUp' >Sign Up</button>
   </form>
@@ -38,57 +38,79 @@
 
 <script>
 
+  const emptyInputErr = () => {
+    const user = document.getElementById('user').value;
+    const pass = document.getElementById('pass').value;
+
+    if (user === '' || pass === '') {
+      document.getElementById('errMsgs').innerText = 'EMPTY INPUT!'
+      return false
+    }
+  }
+
   {{!-- the sign in funciton --}}
   const signIn = (e) => {
-    document.getElementById('errMsgs').innerText = '';
-    const user = document.getElementById('user').value.trim();
-    const pass = document.getElementById('pass').value;
-    if ( pass !== '' && user !== '') {
-      const x = {
-        user: user,
-        pass: pass
-      }
-      fetch('/signIn', {
-        method:'POST',
-        headers:{"content-type":"application/json"},
-        body: JSON.stringify(x)
-      } )
-      .then(
-        res => {
-            if (res.status === 404){
-              document.getElementById('errMsgs').innerText = 'USERNAME OR PASSWORD DOES NOT EXISTS'
-            } else {
-              return res.json()
+    const val = emptyInputErr()
+    if (val === false) {
+      return
+    } else {
+      document.getElementById('errMsgs').innerText = '';
+      const user = document.getElementById('user').value.trim();
+      const pass = document.getElementById('pass').value;
+      if ( pass !== '' && user !== '') {
+        const x = {
+          user: user,
+          pass: pass
+        }
+        fetch('/signIn', {
+          method:'POST',
+          headers:{"content-type":"application/json"},
+          body: JSON.stringify(x)
+        } )
+        .then(
+          res => {
+              if (res.status === 404){
+                document.getElementById('errMsgs').innerText = 'USERNAME OR PASSWORD DOES NOT EXISTS'
+              } else if (res.status === 422) {
+                document.getElementById('errMsgs').innerText = 'WRONG USER OR PASSWORD'
+              }else {
+                return res.json()
+              }
             }
-          }
-      )
-      .then( res=> window.location.href = window.location.origin + '/' + res.goTo)
-      .catch(err=>console.log(err));
+        )
+        .then( res=> window.location.href = window.location.origin + '/' + res.goTo)
+        .catch(err=>console.log(err));
+      }
     }
   };
 
   {{!-- the signUp function --}}
   const singUp = (e) => {
-    document.getElementById('errMsgs').innerText = '';
-    const user = document.getElementById('user').value.trim();
-    const pass = document.getElementById('pass').value;
-    if ( pass !== '' && user !== '') {
-      const x = {
-        user: user,
-        pass: pass
-      }
-      fetch('/signUp', {
-        method:'POST',
-        headers:{"content-type":"application/json"},
-        body: JSON.stringify(x)
-      } ).then(res=>{
-        if (res.status === 200) {
-          document.getElementById('errMsgs').innerText = 'New Account Created'
-        } else if (res.status === 400 ) {
-          document.getElementById('errMsgs').innerText = 'SORRY, USER EXISTS'
+    const val = emptyInputErr();
+    if (val === false) {
+      return
+    } else {
+      document.getElementById('errMsgs').innerText = '';
+      const user = document.getElementById('user').value.trim();
+      const pass = document.getElementById('pass').value;
+      if ( pass !== '' && user !== '') {
+        const x = {
+          user: user,
+          pass: pass
         }
-      })
-       .catch(err=>console.log(err));
+        fetch('/signUp', {
+          method:'POST',
+          headers:{"content-type":"application/json"},
+          body: JSON.stringify(x)
+        } ).then(res=>{
+          if (res.status === 200) {
+            document.getElementById('errMsgs').innerText = 'New Account Created'
+          } else if (res.status === 400 ) {
+            document.getElementById('errMsgs').innerText = 'SORRY, USER EXISTS'
+          }
+        })
+        .catch(err=>console.log(err));
+      }
     }
   }
 
