@@ -168,7 +168,7 @@ describe("business-QaRd server", () => {
 		userLinkedIn: "www.linkedin.com",
 		userInstagram: "www.instagram.com",
 		userStyle: "trendy"
-	}
+	};
 	before((done) => {
 		chai.request(server)
 			.post("/signIn")
@@ -185,7 +185,7 @@ describe("business-QaRd server", () => {
 				.send(data)
 				.end((err, res) => {
 					//console.log(res);
-					//res.should.have.status(200);
+					res.should.eq(undefined);
 					done();
 				});
 		});
