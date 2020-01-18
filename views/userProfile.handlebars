@@ -1,9 +1,8 @@
-<link rel="stylesheet" href="/assets/css/userPageStyles.css">
-<section id="userDisplay">
 
+<div class="sticky-footer-wrapper"></div>
 <header>
   <nav>
-      <a href="/" id="logo">Welcome&nbsp;<span id='headingUserName'>{{username}}</span></a>
+    <a href="/" id="logo">QaRds</a>
     <ul>
       <li><a href="/">Home</a></li>
       <span>|</span>
@@ -12,7 +11,10 @@
   </nav>
 </header>
 
+<section id="userDisplay">
   <!-- Form Field -->
+
+ <h1>Welcome<br/><span id='headingUserName'>{{username}}</span></h1>
 <form action="javascript:void(0);" id="regForm" method="POST">
 
 <!-- One "tab" for each step in the form: -->
@@ -50,8 +52,8 @@
   <input type="radio" id="style1" name="userStyle" value="carbon" {{carbonCard}} >
 </div>
 <div class="radio">
-  <label for="style2">Fractal</label>
-  <input type="radio" id="style2" name="userStyle" value="fractal" {{fractalCard}}>  
+  <label for="style2">Trendy</label>
+  <input type="radio" id="style2" name="userStyle" value="trendy" {{trendyCard}}>  
 </div>
 <div class="radio"> 
   <label for="style4">Geometry</label>
@@ -66,11 +68,17 @@
 
 <button id="userSubmit" type="submit">Save</button>
 <button id="qrGenerate" class="{{diactivated}}" >Generate QR</button>
+<button id="qrPreview" class="{{diactivated}}" >View QaRd</button>
 
 </form>
 
 
 </section>
+</div>
+
+<footer>
+  <p>copyright ©<span id="year"></span></p>
+</footer>
 
 
 <!-- Modal -->
@@ -81,6 +89,8 @@
  <!-- Modal End -->
 
 <script>
+//console.log(url);
+
   const logOut = (e) => {
     fetch( '/logout')
     .then(res=> window.location.href = window.location.origin )
@@ -100,5 +110,16 @@
     });
     
   });
+
+
+// My maybe Solution
+
+let url = {{url}}.toString();
+
+ document.getElementById('qrPreview').addEventListener("click", () => {
+  let win = window.open(url, '_blank');
+  win.focus();
+ });
+
 
 </script>

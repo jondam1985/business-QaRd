@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body{
   font-family: 'Roboto', sans-serif;
 }
@@ -134,6 +138,7 @@ button {
   display: inline-block;
   font-size: 16px;
   border-radius:10px;
+  cursor:pointer;
 }
 
 button:hover {
@@ -169,8 +174,9 @@ button:hover {
     width:auto;
     padding: 0 20px;
     font-family: 'Share Tech Mono', monospace;
-    font-size:3em;
+    font-size: 3em;
   }
+  
   nav ul{
     justify-content: flex-end;
   }
@@ -192,6 +198,24 @@ button:hover {
   }
 }
 
+/* Footer styles */
+footer{
+  background-color:#273238;
+  color:white;
+  border-top: 8px solid #474967;
+  width: 100%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items:center;
+  display:flex;
+  height:60px;
+}
+
+footer p{
+  margin:0px;
+}
+
+
 
 
 /* Modal */
@@ -202,7 +226,7 @@ button:hover {
   
   /* Probably need media queries here */
   display: flex;
-
+  padding-top:30px;
   width: 600px;
   max-width: 100%;
   max-height: 100%;
@@ -260,10 +284,9 @@ button:hover {
   
   /* don't need to go crazy with z-index here, just sits over .modal-guts */
   z-index: 1;
-  top: 10px;
+  top: 0;
   /* needs to look OK with or without scrollbar */
   right: 10px;
-  
   border: 0;
   background: black;
   color: white;

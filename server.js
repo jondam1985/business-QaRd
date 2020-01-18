@@ -102,13 +102,13 @@ app.get("/userProfile/:user" , redirectLogin,  async (req,res)=>{
 		});
 	} else {
 
-		let carbonCard; let fractalCard ;
+		let carbonCard; let trendyCard ;
 		let geometryCard; let standardCard;
 
 		if ( result["cardStyle"] === "carbon"){
 			carbonCard = "checked";
-		} else if  ( result["cardStyle"] === "fractal") {
-			fractalCard = "checked";
+		} else if  ( result["cardStyle"] === "trendy") {
+			trendylCard = "checked";
 		} else if  ( result["cardStyle"] === "geometry"){
 			geometryCard = "checked";
 		}else if  ( result["cardStyle"] === "standard") {
@@ -126,7 +126,7 @@ app.get("/userProfile/:user" , redirectLogin,  async (req,res)=>{
 			portfolio: result["portfolio"],
 			instagram: result["instagram"],
 			carbonCard: carbonCard,
-			fractalCard: fractalCard,
+			trendyCard: trendyCard,
 			geometryCard: geometryCard,
 			standardCard: standardCard,
 			url: `${ req.headers.host + "/QaRd/" + result["unique_id"] }`   
@@ -157,13 +157,13 @@ app.get("/QaRd/:id", async (req, res) => {
 		res.status(404).send();
 	} else {
 
-		let carbonCard; let fractalCard ;
+		let carbonCard; let trendyCard ;
 		let geometryCard; let standardCard;
 
 		if ( result["cardStyle"] === "carbon"){
 			carbonCard = true;
-		} else if  ( result["cardStyle"] === "fractal") {
-			fractalCard = true;
+		} else if  ( result["cardStyle"] === "trendy") {
+			trendyCard = true;
 		} else if  ( result["cardStyle"] === "geometry"){
 			geometryCard = true;
 		}else if  ( result["cardStyle"] === "standard") {
@@ -172,7 +172,7 @@ app.get("/QaRd/:id", async (req, res) => {
 		res.render("userResume",{
 			carbon:carbonCard,
 			geometry:geometryCard,
-			trendy:fractalCard,
+			trendy:trendyCard,
 			simple:standardCard,
 			userFirstName: result["first_name"],
 			userLastName: result["last_name"],
