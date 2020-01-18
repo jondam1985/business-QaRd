@@ -11,6 +11,18 @@ const db = async (query) => {
 	return (result);
 };
 
+const dbDelete = async ({a,b,c}) => {
+	let error;
+	const con = await mysql.createConnection(config);
+	await con.promise().query(a).catch(err=>{console.log(err) ; error = err;});
+	await con.promise().query(b).catch(err=>{console.log(err) ; error = err;});
+	await con.promise().query(c).catch(err=>{console.log(err) ; error = err;}).then(con.end());
+	if (error === undefined){
+		return true;
+	}
+};
+
+
 const getUser = async (user) => {
 	const query = `select * from users where username = '${user}'`;
 	const result = await db(query);
@@ -21,6 +33,20 @@ const getUser = async (user) => {
 		return result[0];
 	}
 };
+
+const deleter = async (unique_id) => {
+	const a = "SET foreign_key_checks = 0";
+	const b = `DELETE FROM users where unique_id = '${unique_id}'`;
+	const c = `DELETE FROM user_profiles where 'unique_id' = '${unique_id}'`;
+	const query = {a,b,c};
+	const result = await dbDelete(query);
+	if (result === true){
+		return true;
+	} else {
+		return false;
+	}
+};
+
 
 const insert = async ( uuid , user, hashCode ) => {
 	let query = `insert into users (unique_id , username, hashCode) values ( '${uuid}' , '${user}' , '${hashCode}' )`;
@@ -112,6 +138,7 @@ exports.module = {
 		insert,
 		checkUserProfileExists,
 		createNewUserProfile,
-		updateExistingUserProfile
+		updateExistingUserProfile,
+		deleter
 	}
 };

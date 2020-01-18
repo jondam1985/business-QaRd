@@ -134,6 +134,14 @@ const userProfileExists = async (data)=>{
 	}
 };
 
+const deleteRecordOf = async (userId) => {
+	const result = await query.deleter(userId);
+	if (result === true) {
+		return true;
+	} else if (result === false) {
+		return false;
+	}
+};
 
 module.exports = {
 	userExists,
@@ -144,4 +152,5 @@ module.exports = {
 	getUserProfile,
 	submitTheData,
 	userProfileExists,
+	deleteRecordOf
 };

@@ -324,8 +324,14 @@ footer p{
   background-color: grey;
 }
 
-
 #errMsgs{
   color: red;
   text-align: center;
+}
+
+#deleteButton{
+  background-color: rgb(165, 0, 0);
+}
+#deleteButton:hover{
+  background-color: rgb(204, 0, 0);
 }

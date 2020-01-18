@@ -75,6 +75,7 @@
 <button id="userSubmit" type="submit">Save</button>
 <button id="qrGenerate" class="{{diactivated}}" >Generate QR</button>
 <button id="qrPreview" class="{{diactivated}}" >Preview QaRd</button>
+<button id="deleteButton" >Delete Account</button>
 
 </form>
 
@@ -95,7 +96,19 @@
  <!-- Modal End -->
 
 <script>
-//console.log(url);
+
+  const deleteAccount =()=>{
+    fetch("/api/delete",{
+          method:'DELETE'
+    })
+    .then(res=>{
+      if (res.status && (res.status === 200)) {
+        window.location.reload();
+      }
+    })
+    .catch(err=>console.log(err))
+  }
+
 
 let decodedJson = decodeURIComponent("{{url}}");
 let urlToBe = "http://" + decodedJson;
@@ -105,14 +118,14 @@ let urlToBe = "http://" + decodedJson;
     .then(res=> window.location.href = window.location.origin )
     .catch(err=>console.log(err));
   }
+  
+  document.getElementById("deleteButton").addEventListener("click",deleteAccount);
 
   document.getElementById('logOut').addEventListener('click',logOut);
-
 
   document.getElementById('qrGenerate').addEventListener("click", () => {
     document.getElementById("modal").classList.remove("hide");
     document.getElementById("modalOverlay").classList.remove("hide");
-    /* document.querySelector(".questionBox iframe").setAttribute("src", "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + urlToBe); */
   });
 
     document.getElementById('close-button').addEventListener("click", () => {
@@ -120,8 +133,8 @@ let urlToBe = "http://" + decodedJson;
       document.getElementById("modalOverlay").classList.add("hide");
   });
 
- document.getElementById('qrPreview').addEventListener("click", () => {
 
+ document.getElementById('qrPreview').addEventListener("click", () => {
   let win = window.open(urlToBe, '_blank');
   win.focus();
  });
