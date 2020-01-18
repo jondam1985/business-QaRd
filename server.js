@@ -187,7 +187,18 @@ app.get("/QaRd/:id", async (req, res) => {
 	}
 });
 
-
+app.delete("/api/delete", redirectLogin , async (req,res)=>{
+	if (req.session.userId){
+		const {userId} = req.session;
+		const result = await controllers.deleteRecordOf(userId);
+		if (result === true) {
+			req.session.destroy();
+			res.status(200).send();
+		} 
+	}else{
+		res.status(400).send();
+	}
+});
 
 module.exports = app.listen(PORT, function() {
 	// Log (server-side) when our server has started
