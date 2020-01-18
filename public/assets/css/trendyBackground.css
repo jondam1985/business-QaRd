@@ -143,7 +143,7 @@ a{
 }
 
 /* Low height Phones */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-height: 500px) {
   .geometryHeader{
     margin-top:-50px;
   }

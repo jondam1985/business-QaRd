@@ -51,22 +51,26 @@
 
 <div class="radio">
   <label for="styleCarbon">Carbon</label>
+  <img src="/assets/images/carbon-preview.jpg" alt="Carbon preview">
   <input type="radio" id="style1" name="userStyle" value="carbon" {{carbonCard}} >
 </div>
 <div class="radio">
   <label for="style2">Trendy</label>
+  <img src="/assets/images/trendy-preview.jpg" alt="Trendy preview">
   <input type="radio" id="style2" name="userStyle" value="trendy" {{trendyCard}}>  
 </div>
 <div class="radio"> 
   <label for="style4">Geometry</label>
+  <img src="/assets/images/geo-preview.jpg" alt="Geometry preview">
   <input type="radio" id="style3" name="userStyle" value="geometry" {{geometryCard}}>
 </div>
 <div class="radio">
   <label for="style4">Standard</label>
+  <img src="/assets/images/standard-preview.jpg" alt="Standard preview">
   <input type="radio" id="style4" name="userStyle" value="standard" {{standardCard}}>
 </div>
 
-<div>
+<div id="buttons">
 
 <button id="userSubmit" type="submit">Save</button>
 <button id="qrGenerate" class="{{diactivated}}" >Generate QR</button>
@@ -94,7 +98,7 @@
 //console.log(url);
 
 let decodedJson = decodeURIComponent("{{url}}");
-let urlToBe = "https://" + decodedJson;
+let urlToBe = "http://" + decodedJson;
 
   const logOut = (e) => {
     fetch( '/logout')

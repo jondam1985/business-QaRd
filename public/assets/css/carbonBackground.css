@@ -26,6 +26,9 @@ a{
   display:flex; 
   flex-direction:column;
   width:100%;
+  border-radius: 0 50px 0 0;
+  padding: 40px 0;
+  margin-right: 30px;
 }
 
 #container div {
@@ -91,27 +94,63 @@ a{
   background-color: #165e60;
 }
 
+#landscapeMessage{
+  position: absolute;
+  color:white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:none;
+  font-size:1.25em;
+}
+
+#landscapeMessage i{
+  text-align: center;
+  font-size:2em;
+  width:100%;
+}
+
 
 /* Force Orientation View  to portrit for a consistent style*/
 
-/*
-@media only screen and (orientation:landscape){
+@media screen and (orientation: landscape) and (max-device-width: 900px) {
   #container {
-    height: 100vw;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+    display:none;
+  }
+
+  .trendyHeader{
+    display:none;
+  }
+
+  html,body{
+    background-color:#172328;
+    background-image:none;
+  }
+
+  #landscapeMessage{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width:60%;
+  }
+
+  #landscapeMessage div:nth-of-type(1){
+    flex-grow: 2;
+    padding: 0 10px;
+  }
+
+  #landscapeMessage div:nth-of-type(2){
+    flex-grow: 1;
+  }
+
+  body{
+    border:none;
   }
 }
 
-@media only screen and (orientation:portrait){
-  #container {
-     -webkit-transform: rotate(0deg);
-     -moz-transform: rotate(0deg);
-     -o-transform: rotate(0deg);
-     -ms-transform: rotate(0deg);
-     transform: rotate(0deg);
+/* Low height Phones */
+@media only screen and (max-width: 500px) {
+  .geometryHeader{
+    margin-top:-50px;
   }
-} */
+}
