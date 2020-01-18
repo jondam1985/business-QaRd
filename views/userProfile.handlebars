@@ -94,7 +94,7 @@
 //console.log(url);
 
 let decodedJson = decodeURIComponent("{{url}}");
-let urlToBe = "https://" + decodedJson;
+let urlToBe = "http://" + decodedJson;
 
   const logOut = (e) => {
     fetch( '/logout')
