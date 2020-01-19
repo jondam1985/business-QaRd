@@ -19,12 +19,12 @@
           navigator.share({
               title: "Business QaRd",
               text: "Hello, here is my business QaRd!",
-              url: "https://google.com"
+              url: "{{url}}"
           })
-          .then(window.alert("Thank you for sharing!"));
+          .then(console.log("Shared!"));
       }
       else {
-          window.alert("Share function not available")
+          window.alert("Share function not available");
       }
   });
 </script>
