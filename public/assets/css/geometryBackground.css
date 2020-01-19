@@ -114,6 +114,15 @@ a{
   font-size:2em;
   width:100%;
 }
+
+.hide{
+  display:none;
+}
+
+#socialBlock.hide{
+  display:none;
+}
+
 /* Force Orientation View  to portrit for a consistent style*/
 
 @media screen and (orientation: landscape) and (max-device-width: 900px) {

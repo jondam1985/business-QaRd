@@ -110,6 +110,14 @@ a{
   width:100%;
 }
 
+.hide{
+  display:none;
+}
+
+#socialBlock.hide{
+  display:none;
+}
+
 
 /* Force Orientation View  to portrit for a consistent style*/
 
