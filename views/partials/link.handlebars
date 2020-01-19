@@ -4,8 +4,9 @@
   <div class="modal-guts">
     <section id="options">
       <div class="questionBox">
-      <iframe width="300" height="300" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{url}}"></iframe>
-      <button id='share' >Share</button>
+        <iframe width="300" height="300"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{url}}"></iframe>
+        <button id='share'>Share</button>
     </section>
   </div>
 </div>
@@ -13,18 +14,23 @@
 <script>
   const shareBtn = document.getElementById("share");
 
-  shareBtn.addEventListener("click", function(e) {
+  let decodedUrl = decodeURIComponent("{{url}}");
+  let sharedUrl = `https://${decodedUrl}`;
+
+
+  shareBtn.addEventListener("click", function (e) {
     e.preventDefault();
-      if (navigator.share) {
-          navigator.share({
-              title: "Business QaRd",
-              text: "Hello, here is my business QaRd!",
-              url: "{{url}}"
-          })
-          .then(console.log("Shared!"));
-      }
-      else {
-          window.alert("Share function not available");
-      }
+    if (navigator.share) {
+      navigator.share({
+        title: "Business QaRd",
+        text: "Hello, here is my business QaRd!",
+        url: sharedUrl
+      })
+        .then(console.log("Shared!"));
+    }
+    else {
+      window.alert("Share function not available");
+      console.log(sharedUrl);
+    }
   });
 </script>
