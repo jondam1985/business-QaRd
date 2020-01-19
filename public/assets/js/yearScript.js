@@ -1,4 +1,6 @@
 // Sets year in footer copyright
 document.addEventListener("DOMContentLoaded", function(){
-	document.getElementById("year").innerHTML = new Date().getFullYear();
+	if (typeof(document.getElementById("year")) != "undefined" && document.getElementById("year") != null){
+		document.getElementById("year").innerHTML = new Date().getFullYear();
+	}
 });
