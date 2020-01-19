@@ -14,3 +14,27 @@
   {{>simple}}
  {{/if}}
 
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+  let userPortfolio = decodeURIComponent("{{userPortfolio}}");
+  let userLinkedIn = decodeURIComponent("{{userLinkedIn}}");
+  let userInstagram = decodeURIComponent("{{userInstagram}}");
+
+    if( userInstagram === "" && userLinkedIn === "" && userInstagram === "" ){
+      document.querySelector("#socialBlock").classList.add("hide");
+    }else{
+      if( userPortfolio === ""){
+        document.querySelector("#socialLinks p:nth-of-type(1)").classList.add("hide");
+      }
+
+      if( userLinkedIn === ""){
+        document.querySelector("#socialLinks p:nth-of-type(2)").classList.add("hide");
+      }
+
+      if( userInstagram === ""){
+        document.querySelector("#socialLinks p:nth-of-type(3)").classList.add("hide");
+      }
+    }
+  });
+</script>

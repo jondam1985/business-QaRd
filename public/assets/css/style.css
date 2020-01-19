@@ -205,7 +205,11 @@ footer p{
     flex-direction:row;
   }
 
- 
+  #cardDisplay div{
+    width:35%;
+    margin:0 auto;
+    margin-bottom:20px;
+  }
 
   #instructionDisplay{
     display:flex;
@@ -275,4 +279,6 @@ footer p{
   #cardDisplay div img{
     min-width:100%;
   }
+  
 }
+
