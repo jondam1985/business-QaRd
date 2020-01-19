@@ -18,7 +18,7 @@ const {
 	SESS_NAME = "sid",
 	SESS_SECRET = "thisIsTheSecretKey",
 	SESS_LIFETIME = TIME //set to 15 minutes
-} //= process.env;
+} = process.env;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
