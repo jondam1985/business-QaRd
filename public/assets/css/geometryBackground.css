@@ -161,6 +161,6 @@ a{
 /* Low height Phones */
 @media only screen and (max-height: 650px) {
   .geometryHeader{
-    margin-top:-100px;
+    margin-top:-110px;
   }
 }
