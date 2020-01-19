@@ -36,7 +36,7 @@
     else {
       axios.post(`https://api.shrtco.de/v2/shorten?url=${sharedUrl}`)
       .then(function(response) {
-              window.alert(`Could not be shared ${response.data.result.full.short_link}`);
+              window.alert(`Could not be shared ${response.data.result.full_short_link}`);
       console.log(sharedUrl);
 
     })
