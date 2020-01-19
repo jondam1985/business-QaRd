@@ -8,16 +8,6 @@ const controllers = require("./controller/controller.js");
 
 const app = express();
 
-//Enforcing https:// (redirencting when call made to http://)
-app.use((req, res, next) => {
-	if (req.headers["x-forwarded-proto"] !== "https://") {
-		return res.redirect(`https://${req.headers.host}${req.url}`);
-	}
-	else {
-		return next();
-	}
-});
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 const PORT = process.env.PORT || 9090;
@@ -28,7 +18,7 @@ const {
 	SESS_NAME = "sid",
 	SESS_SECRET = "thisIsTheSecretKey",
 	SESS_LIFETIME = TIME //set to 15 minutes
-} = process.env;
+} //= process.env;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,6 +34,15 @@ app.use(session({
 	}
 }));
 
+//Enforcing https:// (redirencting when call made to http://)
+app.use((req, res, next) => {
+	if (req.headers["x-forwarded-proto"] !== "https://") {
+		return res.redirect(`https://${req.headers.host}${req.url}`);
+	}
+	else {
+		return next();
+	}
+});
 
 
 //this function will redirect the users to the login if they are not authenticated
