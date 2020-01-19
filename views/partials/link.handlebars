@@ -11,19 +11,20 @@
 </div>
 
 <script>
-  const share = document.getElementById("share");
+  const shareBtn = document.getElementById("share");
 
-  share.addEventListener("click", function() {
+  shareBtn.addEventListener("click", function(e) {
+    e.preventDefault();
       if (navigator.share) {
           navigator.share({
-              title: "This is awesome",
-              text: "But wait, there's more!",
-              url: `{{url}}`
+              title: "Business QaRd",
+              text: "Hello, here is my business QaRd!",
+              url: "https://google.com"
           })
-          .then(window.alert("thank you for sharing"));
+          .then(window.alert("Thank you for sharing!"));
       }
       else {
-          window.alert("This is for mobile-users only")
+          window.alert("Share function not available")
       }
   });
 </script>
