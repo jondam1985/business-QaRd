@@ -24,7 +24,7 @@
     if (navigator.share) {
       axios.post(`https://api.shrtco.de/v2/shorten?url=${sharedUrl}`)
       .then(function(response) {
-        let shortUrl = response.data.result.short_link;
+        let shortUrl = response.data.result.full_short_link;
       navigator.share({
         title: "Business QaRd",
         text: "Hello, here is my business QaRd!",
@@ -36,7 +36,7 @@
     else {
       axios.post(`https://api.shrtco.de/v2/shorten?url=${sharedUrl}`)
       .then(function(response) {
-              window.alert(`Could not be shared ${response.data.result.short_link}`);
+              window.alert(`Could not be shared ${response.data.result.full.short_link}`);
       console.log(sharedUrl);
 
     })
