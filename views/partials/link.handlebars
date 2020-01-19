@@ -24,17 +24,22 @@
     if (navigator.share) {
       axios.post(`https://api.shrtco.de/v2/shorten?url=${sharedUrl}`)
       .then(function(response) {
+        let shortUrl = response.data.result.short_link;
       navigator.share({
         title: "Business QaRd",
         text: "Hello, here is my business QaRd!",
-        url: respose.data.result.short_link
+        url: shortUrl
       })
         .then(console.log("Shared!"));
     })
     }
     else {
-      window.alert("Share function not available");
+      axios.post(`https://api.shrtco.de/v2/shorten?url=${sharedUrl}`)
+      .then(function(response) {
+              window.alert(`Could not be shared ${response.data.result.short_link}`);
       console.log(sharedUrl);
+
+    })
     }
   });
 </script>
