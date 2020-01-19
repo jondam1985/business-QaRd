@@ -11,6 +11,7 @@
   </div>
 </div>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
   const shareBtn = document.getElementById("share");
 
@@ -21,13 +22,16 @@
   shareBtn.addEventListener("click", function (e) {
     e.preventDefault();
     if (navigator.share) {
+      axios.post(`https://api.shrtco.de/v2/shorten?url=${sharedUrl}`)
+      .then(function(response) {
       navigator.share({
         title: "Business QaRd",
         text: "Hello, here is my business QaRd!",
-        url: sharedUrl
+        url: respose.data.result.short_link
       })
         .then(console.log("Shared!"));
     }
+    });
     else {
       window.alert("Share function not available");
       console.log(sharedUrl);
