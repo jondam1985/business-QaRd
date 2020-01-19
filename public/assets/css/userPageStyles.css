@@ -49,7 +49,9 @@ input[type=radio] {
   margin-left: auto;
 }
 
-
+.disclaimer {
+  color: red;
+}
 
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
