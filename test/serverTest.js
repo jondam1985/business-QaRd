@@ -146,7 +146,7 @@ describe("business-QaRd server", () => {
 			chai.request(server)
 				.get(`/userProfile/${userProfile}`)
 				.end((err, res) => {
-					res.should.have.status(200);
+					res.should.eq("undefined");
 					done();
 				});
 		});
