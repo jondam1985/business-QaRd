@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "test": "eslint . --ext .js",
+    "test": "eslint . --ext .js && mocha",
     "fix": "eslint . --fix --ext .js",
     "start": "nodemon server.js",
     "lint": "eslint"
