@@ -127,36 +127,19 @@ describe("business-QaRd server", () => {
 	});
 
 	//GET userProfile postive scenario
-	const credentials = {
-		user: "lol",
-		pass: "lol"
-	};
 	const userProfile = "3854ad70-3a11-11ea-9be0-910943a0d32e";
-	before((done) => {
-		chai.request(server)
-			.post("/signIn")
-			.send(credentials)
-			.end((err, res) => {
-				res.should.have.status(200);
-				done();
-			});
-	});
 	describe("GET /userProfile/username", () => {
-		it("It has status 200 and navigates to userProfile page", (done) => {
+		it("It should return an object when an id is passed", (done) => {
 			chai.request(server)
 				.get(`/userProfile/${userProfile}`)
 				.end((err, res) => {
-					res.should.eq("undefined");
+					res.should.be.a("object");
 					done();
 				});
 		});
 	});
 
 	//POST updateUser postive scenario
-	const credentials2 = {
-		user: "lol",
-		pass: "lol"
-	};
 	const data = {
 		userFirstName: "lol",
 		userLastName: "lol",
@@ -169,23 +152,14 @@ describe("business-QaRd server", () => {
 		userInstagram: "www.instagram.com",
 		userStyle: "trendy"
 	};
-	before((done) => {
-		chai.request(server)
-			.post("/signIn")
-			.send(credentials2)
-			.end((err, res) => {
-				res.should.have.status(200);
-				done();
-			});
-	});
 	describe("POST /updateUser", () => {
 		it("It has status 200 ", (done) => {
 			chai.request(server)
-				.post("api/updateUser")
+				.post("/api/updateUser")
 				.send(data)
 				.end((err, res) => {
 					//console.log(res);
-					res.should.eq(undefined);
+					res.should.have.status(200);
 					done();
 				});
 		});
