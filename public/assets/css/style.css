@@ -4,7 +4,6 @@ html, body{
 }
 
 body{
-  background-repeat: repeat;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
@@ -15,14 +14,16 @@ h1,h2,h3,h4,h5{
   font-family: 'Roboto', sans-serif;
 }
 
-header{
-  background-color:#273238;
-  border-bottom: 5px solid #7977a8;
-}
-
 /* Added for sticky footer */
 .sticky-footer-wrapper {
   flex: 1 0 auto;
+}
+
+/* START OF HEADER STYLES */
+
+header{
+  background-color:#273238;
+  border-bottom: 5px solid #7977a8;
 }
 
 /* Navigation styles */
@@ -77,7 +78,9 @@ nav li a.active, nav li a:hover{
   cursor:pointer;
 }
 
+/* END OF HEADER STYLES */
 
+/* START OF SECTION STYLES */
 
 #about, #userDisplay, #signInAndSignUp, #instructions{
   width:100%;
@@ -87,7 +90,6 @@ nav li a.active, nav li a:hover{
   background-color:white;
   box-sizing: border-box;
 }
-
 
 section h1{
   color:#474967;
@@ -100,32 +102,6 @@ section h1{
 section p {
   font-size:1.2em;
   line-height:1.5em;
-}
-
-
-
-/* Contact page styles */
-/* Form mostly taken from w3c then minorly modified*/
-/*  [] Shows it is targeting an attribute */
-
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-  width: 100%; 
-  padding: 12px; 
-  border: 1px solid #7977a8;
-  box-sizing: border-box; 
-  margin-top: 6px; 
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #474967;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
 }
 
 
@@ -153,8 +129,6 @@ input[type=submit] {
   border: 1px solid #469f45;
 }
 
-
-
 #instructionDisplay{
   display:flex;
   flex-direction:column;
@@ -171,11 +145,10 @@ input[type=submit] {
   border: 1px solid #333;
 }
 
+/* END OF SECTION STYLES */
 
+/* START OF FOOTER STYLES */
 
-
-
-/* Footer styles */
 footer{
   background-color:#273238;
   color:white;
@@ -192,12 +165,225 @@ footer p{
   margin:0px;
 }
 
+/* END OF FOOTER STYLES */
+
+/* START OF FORM STYLES */
+#regForm, #signInForm {
+  background-color: #ffffff;
+  margin: 0px auto;
+  padding: 20px;
+  width: 75%;
+  min-width: 200px;
+}
+
+.label{
+  color: rgb(121, 121, 121);
+}
+
+.inputMargin{
+  margin-bottom: 20px;
+  padding-left: 7px;
+}
+
+.inputPadding{
+  padding-left: 7px;
+}
+
+/* Style the input fields */
+input {
+  padding: 5px 0;
+  width: 100%;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  border:none;
+  border-bottom: 1px solid #474967;
+}
+
+input:focus {
+  outline: none !important;
+  border: 2px solid #474967!important;
+}
+
+input[type=radio] {
+  border: 5px solid black;
+  width:20px;
+  margin-left: auto;
+}
+
+.disclaimer {
+  color: red;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+.radio{
+  display: flex;
+  width: 100%;
+  min-height: 25px;
+  align-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.radio img{
+  width: 100px;
+  margin-left: 30px;
+  margin-right:10px;
+  border: 1px solid #666;
+}
+
+.radio label{
+  display:block;
+  width:50px;
+}
+
+#buttons{
+  margin-top:10px;
+}
+
+#first_name_error, #last_name_error, #e_mail_error, #phone_error, #company_error, #role_error{
+display:none;
+color:red;
+}
+
+#first_name_error.inError, #last_name_error.inError, #e_mail_error.inError, #phone_error.inError, #company_error.inError, #role_error.inError{
+  display:block;
+}
+
+button {
+  margin-top:10px;
+  background-color: #474967;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+button:hover {
+  background-color: #7977a8;
+}
+
+.diactivated{
+  background-color: grey;
+}
+.diactivated:hover{
+  background-color: grey;
+}
+
+#errMsgs{
+  color: red;
+  text-align: center;
+}
+
+#deleteButton{
+  background-color: rgb(165, 0, 0);
+}
+#deleteButton:hover{
+  background-color: rgb(204, 0, 0);
+}
+
+/* START OF FORM STYLES */
+
+/* START OF MODAL STYLES */
+
+.modal {
+  /* This way it could be display flex or grid or whatever also. */
+  display: block;
+  
+  /* Probably need media queries here */
+  display: flex;
+  padding-top:30px;
+  width: 600px;
+  max-width: 100%;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  overflow-y:auto;
+  
+  /* Use this for centering if unknown width/height */
+  transform: translate(-50%, -50%);
+  
+  /* If known, negative margins are probably better (less chance of blurry text). */
+  /* margin: -200px 0 0 -200px; */
+  
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+}
+.closed {
+  display: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal-guts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 20px 50px 20px 20px;
+}
 
 
 
-/* Media Queries */
+.modal-guts {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+}
 
-/* Declared as a requirement of the assignment but not used as the layout didn't require it */
+
+.modal .close-button {
+  position: absolute;
+  cursor: pointer;
+  
+  /* don't need to go crazy with z-index here, just sits over .modal-guts */
+  z-index: 1;
+  top: 0;
+  /* needs to look OK with or without scrollbar */
+  right: 10px;
+  border: 0;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.3rem;
+}
+
+#share{
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+
+.hide{
+  display:none;
+}
+
+/* END OF MODAL STYLES */
+
+
+/* START OF MEDIA QUERIES */
+
 @media only screen and (min-width: 640px) {
 
   #cardDisplay{
@@ -222,7 +408,7 @@ footer p{
     margin-right:1.25%;
     flex-direction:row;
   }
-
+  
 }
 
 @media only screen and (min-width: 768px) {
@@ -230,11 +416,14 @@ footer p{
     flex-direction:row;
     height:90px;
   }
+
   nav > a{
-    width:250px;
+    width:auto;
+    padding: 0 20px;
     font-family: 'Share Tech Mono', monospace;
-    font-size:3em;
+    font-size: 3em;
   }
+
   nav ul{
     justify-content: flex-end;
   }
@@ -282,3 +471,4 @@ footer p{
   
 }
 
+/* END OF MEDIA QUERIES */
