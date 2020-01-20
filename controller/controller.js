@@ -152,5 +152,6 @@ module.exports = {
 	getUserProfile,
 	submitTheData,
 	userProfileExists,
-	deleteRecordOf
+	deleteRecordOf,
+	hasher
 };
