@@ -14,7 +14,8 @@
   "scripts": {
     "test": "eslint . --ext .js",
     "fix": "eslint . --fix --ext .js",
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "start-dev": "nodemon server.js",
     "lint": "eslint"
   },
   "repository": {
@@ -47,10 +48,10 @@
     "jquery": "^3.4.1",
     "mocha": "^7.0.0",
     "mysql2": "^2.1.0",
-    "nodemon": "^2.0.2",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2"
   }
 }
